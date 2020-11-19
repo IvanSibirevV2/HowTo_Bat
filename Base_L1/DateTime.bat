@@ -33,8 +33,8 @@ exit /b
 	echo :Now.Seconds=%rez%
 	call "DateTime.bat" ":Now.Guid" rez
 	echo :Now.Guid=%rez%
-	::call "DateTime.bat" ":Now.Guid" rez
-	::echo :Now.Guid=%rez%
+	call "DateTime.bat" ":Now.Guid" rez
+	echo :Now.Guid=%rez%
 	echo ################################################################
 	TIMEOUT /T 10
 exit /b
