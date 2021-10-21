@@ -10,6 +10,11 @@ rem Чтобы добавить переменную, в командной ст
 set FileWrite="%date% %time%.html"
 if defined FileWrite (echo "FileWrite - defined")
 Echo %FileWrite%
+rem Многострочные команды в одну строку (Объединятель)
+rem Этот символ если в строку - экронирует последующий символ
+Echo File^
+	Write
+pause
 rem Чтобы удалить переменную, в командной строке введите: 
 set FileWrite=
 rem проверка на пустоту переменной
