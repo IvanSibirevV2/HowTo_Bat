@@ -1,5 +1,9 @@
 Rem V0.0.2
 @echo off
+if "%cd%" EQU "C:\Program Files\Notepad++" (
+	cd C:\D\Git_Hub\HowTo_Bat\CMD_BAT_Adapter_Forge
+)
+echo %cd%
 call :menu.run
 
 PAUSE
