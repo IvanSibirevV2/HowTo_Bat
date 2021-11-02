@@ -14,8 +14,8 @@ exit /b
 	echo :Test
 	::Внутренние функции запускаются как батник
 	::с параметрами, вот два способа:
-	call "005_FunctionA1.bat" ":Test" "HelloWord"
-	call "005_FunctionA1.bat" ":Pi" rez
+	call "003_FunctionA1.bat" ":Test" "HelloWord"
+	call "003_FunctionA1.bat" ":Pi" rez
 	echo :Pi=%rez%
 	echo ################################################################
 	TIMEOUT /T 10

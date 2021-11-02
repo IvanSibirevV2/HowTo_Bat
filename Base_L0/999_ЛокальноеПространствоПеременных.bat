@@ -4,11 +4,13 @@
 ::EndLocal
 ::Используется для объявления локального пространства переменных
 ::---------------------------------------------------------
-echo OFF
+@echo OFF
 set per1=AAA
 echo %per1%
 ::call "EchoColor.BAT" 97 "Привет цветной мир"
 SetLocal
+	echo %%per1%%
+	
 	set per1=BBB
 	echo %per1%
 	SetLocal
@@ -19,3 +21,4 @@ SetLocal
 endlocal
 echo %per1%
 TIMEOUT /T 2
+pause

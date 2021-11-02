@@ -15,6 +15,10 @@ if not defined FileWrite (echo "FileWrite - not defined")
 ::
 set FileWrite="%date% %time%.html"
 Echo %FileWrite%
+
+set qwe=0
+if not defined qwe (echo not)
+if defined qwe (echo sdfghjkl)
 ::Echo %FileWrite%
 TIMEOUT /T 10
 pause

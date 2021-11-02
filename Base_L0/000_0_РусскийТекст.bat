@@ -1,4 +1,5 @@
 @echo off
+echo ¬ключаем русский текст
 chcp 1251 >nul
 echo ¬ключаем русский текст
 pause
