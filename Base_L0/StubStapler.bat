@@ -30,7 +30,7 @@ rem Сначала заголовок будующего файла
 	echo echo HelloWorld
 )>> %FileName%
 rem Затем основной исполняемый код
-call :StapThis StubStapler_Example.bat
+call :StubStap StubStapler_Example.bat
 rem Затем окончание нашего файла
 (
 	echo PAUSE
@@ -48,7 +48,7 @@ PAUSE
 CLS
 EXIT
 rem %1 - имя файла, который нужно подшить
-:StapThis
+:StubStap
 	echo %1
 	for /f "usebackq tokens=*" %%a in (%1) do (
 		@echo %%~a >> %FileName%
