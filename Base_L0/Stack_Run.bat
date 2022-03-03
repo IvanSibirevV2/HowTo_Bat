@@ -6,12 +6,17 @@ echo %cd%
 :::::::::::::::::::::::::::::::::
 set FileName="_%date:.=,%_%time::=,%_%username%.bat"
 echo %FileName%
+set spase_=
 ::Посылаем в лоб программный код на дозапись в файл
 (
 	echo @echo off
-	type VirtualVar.bat Stack.bat
+	echo call :Stack.Test
 	echo pause
 	echo exit /b
+	type VirtualVar.bat
+	echo %spase_%
+	type Stack.bat
+	echo %spase_%
 )>> %FileName%
 notepad %FileName%
 %FileName%
