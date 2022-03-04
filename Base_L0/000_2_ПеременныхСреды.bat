@@ -1,8 +1,5 @@
 @echo off
-if "%cd%" EQU "C:\Program Files\Notepad++" (
-	cd C:\D\Git_Hub\HowTo_Bat\Base_L0
-)
-echo %cd%
+cd %~dp0
 echo ::::::::::::::::::::::::::::::::::::::::::::::::
 rem Чтобы добавить переменную, в командной строке введите
 set FileWrite="%date% %time%.html"

@@ -1,4 +1,5 @@
 @echo off
+cd %~dp0
 Set /P Input=  Введите пароль для продолжения ^>
 echo "Input=%Input%"
 set per1= 4

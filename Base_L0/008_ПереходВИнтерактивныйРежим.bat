@@ -1,5 +1,5 @@
 @echo off
-CD C:\D\Git\008_DosBat_Git0\Base
+cd %~dp0
 Echo %CD%
 Echo ****************************
 Echo cmd.exe will be started

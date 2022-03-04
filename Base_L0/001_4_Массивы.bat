@@ -1,4 +1,5 @@
 @echo off
+cd %~dp0
 :: Создание массива А:
 call :array new A "'one','two','three','foo','bar'"
 :: Получение третьего элемента в result:

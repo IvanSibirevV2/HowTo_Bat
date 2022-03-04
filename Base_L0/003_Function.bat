@@ -1,4 +1,5 @@
 @echo off
+cd %~dp0
 	call:factorial_Test
 	call:factorial_V2_Test
 pause

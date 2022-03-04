@@ -2,6 +2,7 @@
 rem Библиотека виртуальной переменной.
 rem VirtualVar.bat
 @echo off
+cd %~dp0
 	if "%1"=="" (call :VirtualVar.Main)
 	if %1 EQU ":Main" (call :VirtualVar.Main)
 	if %1 EQU ":defVar" (call :defVar %2 %3)

@@ -1,4 +1,5 @@
 @echo off
+cd %~dp0
 	if "%1"=="" (call :Main)
 	if %1 EQU ":Main" (call :Main)
 	::%2 - подхватываемый из вне входной параметр

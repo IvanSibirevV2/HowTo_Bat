@@ -1,4 +1,6 @@
-@echo off
+:::::::::::::::::::::::::::::::::::::::::::::::
+::@echo off
+cd %~dp0
 	if "%1"=="" (call :Stack.Main)
 	if %1 EQU ":Main" (call :Stack.Main)
 	if %1 EQU ":Stack.push" (call :Stack.push %2 %3)
@@ -11,14 +13,27 @@ exit /b
 :Stack.Main
 	echo Stack.bat
 	echo BLL-Bat Lite Library
-	echo ""	
+	echo.
 	echo :Stack.push
 	echo :Stack.popw
 	echo :Stack.pop
 	echo :Stack.Test
-	echo ""	
-	set qwde=echo !_!_!
-	%qwde%
+	echo.
+	set FileName="_%date:.=,%_%time::=,%_%username%.bat"
+	echo %FileName%
+	(
+		echo @echo off
+		echo call :Stack.Test
+		echo pause
+		echo exit /b 0
+		echo.
+		type VirtualVar.bat
+		echo.
+		type Stack.bat
+		echo.
+	)> %FileName%
+	notepad %FileName%
+	call %FileName%
 	pause
 exit /b
 :::::::::::::::::::::::::::::::::::::::::::::::
@@ -34,13 +49,13 @@ rem %1 Название переменной стека; rem %2 Засовыва
 	call :defVar %1%B% %2
 	call :getVar %1%B% C
 	::echo %1%B%= %C%
-exit /b 0
+exit /b
 rem Изымание с вершины стека значения без удаления его
 rem %1 Название переменной стека; rem %2 Возвращаемое значение
 :Stack.popw
 	call :getVar %1.Count B
 	call :getVar %1%B% %2
-exit /b 0
+exit /b
 rem Взасовывание в стек значения
 rem %1 Название переменной стека; %2 Возвращаемое значение
 :Stack.pop
@@ -49,10 +64,10 @@ rem %1 Название переменной стека; %2 Возвращаем
 	set %1%B%=
 	call :getVar %1.Count _Count
 	set /a %1.count= %_Count%-1
-exit /b 0
+exit /b
 rem модуль стека дописан осталось протестировать
 :Stack.Test
 	call :Stack.push A QWE
 	echo A.Count=%A.Count%
 	echo A1=%A1%
-exit /b 0
+exit /b

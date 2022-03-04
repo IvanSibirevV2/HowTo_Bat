@@ -1,6 +1,5 @@
 @echo off
-	::Надо будет, папку запуска поменяете...
-	cd "C:\D\Git_Hub\HowTo_Bat\Base_L0"
+cd %~dp0
 	call :Main
 pause
 exit /b

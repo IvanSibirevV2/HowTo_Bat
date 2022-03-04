@@ -1,9 +1,5 @@
 @echo off
-::Переключаемся на папку если запуск был из N++
-if "%cd%" EQU "C:\Program Files\Notepad++" (
-	cd C:\D\Git_Hub\HowTo_Bat\Base_L0
-)
-echo %cd%
+cd %~dp0
 echo ::::::::::::::::::::::::::::::::::::::::::::::::
 ::Получение всех переменных среды
 set

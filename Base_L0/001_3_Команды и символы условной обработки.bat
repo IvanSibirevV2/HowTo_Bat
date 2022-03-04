@@ -1,4 +1,5 @@
 @echo off
+cd %~dp0
 echo "0"
 echo Bla & echo Bla & echo ...Off
 ::& [...]::команда1 & команда2	
