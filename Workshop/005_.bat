@@ -1,61 +1,18 @@
-::http://tehnopost.info/computer/26-taymer-dlya-vyklyucheniya-kompyutera-windows-7.html
-::https://tiflohelp.ru/articles/sozdat-tihij-installyator.html
-::Экспериментируйте, интерестно что получится
 @echo off
 cd %~dp0
-call :menu.run
-
+(
+	echo set a=4
+	echo set b=2
+	echo ::set appr=+
+	echo ::set appr=-
+	echo ::set appr=*
+	echo set appr=/
+	echo set /a rez=%%a%%%%appr%%%%b%%
+	echo echo %%rez%%
+	echo echo qwe
+	echo PAUSE
+)> MyCall.bat
+notepad "MyCall.bat
+MyCall.bat
 PAUSE
 EXIT
-
-:menu.Choice2
-	set /a menu.id= %menu.id%-1
-exit /b 0
-:menu.Choice3
-	set /a menu.id= %menu.id%+1
-exit /b 0
-rem e - DO =  ;%ErrorLevel%==1
-rem w - upp ;%ErrorLevel%==2
-rem s - doun ;%ErrorLevel%==3
-rem Show Menu
-:menu.run
-	set menu.id=1
-	:menu.run.m_cajhgushfkjdagskjsagj
-		echo ##################################
-		call :menu.Choice1
-		echo ##################################
-		choice /c ews
-		call :menu.Choice%ErrorLevel% do
-	goto :menu.run.m_cajhgushfkjdagskjsagj
-exit /b 0
-rem Пункты меню вписывать сюда.
-:menu.Choice1
-	set menu.counter=-1
-:::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::::::::::::::::::::::::::::::::::::::::
-	set /a menu.counter= %menu.counter%+1
-	if "%1" EQU "" (
-		::Вывод на экран символа * без перехода на следующую строку, если пункт меню выбран
-		if %menu.id% EQU %menu.counter% (<nul set /p strTemp=*)
-		::Вывод названия пункта меню
-		echo %menu.counter%. Exit
-	)else (
-		::Выполнение функционала, заложенного под пункт меню
-		if %menu.id% EQU %menu.counter% Exit
-	)
-:::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::::::::::::::::::::::::::::::::::::::::
-	set /a menu.counter= %menu.counter%+1
-	if "%1" EQU "" (
-		if %menu.id% EQU %menu.counter% (<nul set /p strTemp=*)
-		echo %menu.counter%. "a=..."
-	)else (if %menu.id% EQU %menu.counter% (
-	start https://firefox.mail.ru/
-	start https://www.opera.com/ru
-))
-:::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::::::::::::::::::::::::::::::::::::::::
-::wmic product where name="Имя программы" call uninstall /nointeractive
-exit /b 0
