@@ -51,14 +51,6 @@ rem Пункты меню вписывать сюда.
 		echo %menu.counter%. "https://firefox.mail.ru/"
 	)else (if %menu.id% EQU %menu.counter% (
 	start https://firefox.mail.ru/
-))
-:::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::::::::::::::::::::::::::::::::::::::::
-	set /a menu.counter= %menu.counter%+1
-	if "%1" EQU "" (
-		if %menu.id% EQU %menu.counter% (<nul set /p strTemp=*)
-		echo %menu.counter%. "https://www.opera.com/ru"
-	)else (if %menu.id% EQU %menu.counter% (
 	start https://www.opera.com/ru
 ))
 :::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -76,21 +68,37 @@ rem Пункты меню вписывать сюда.
 	if "%1" EQU "" (
 		if %menu.id% EQU %menu.counter% (<nul set /p strTemp=*)
 		echo %menu.counter%. "start /wait firefox_ru.exe /s "-CoolInstall
-	)else (if %menu.id% EQU %menu.counter% (
-	start /wait firefox_ru.exe /s
-	echo firefox_ru - ok
-))
+	)else (
+		if %menu.id% EQU %menu.counter% (
+			start /wait firefox_ru.exe /s
+			echo firefox_ru - ok
+		)
+	)
 :::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::
+	::https://dudom.ru/kompjutery/wmic-product-get-name/
+	::rem wmic product where name="Mozilla" call uninstall /nointeractive
+	:: Работает только с тем что было установлено через Microsoft Instaler
 	set /a menu.counter= %menu.counter%+1
 	if "%1" EQU "" (
 		if %menu.id% EQU %menu.counter% (<nul set /p strTemp=*)
-		echo %menu.counter%. "start /wait firefox_ru.exe /s "-HortInstall
-	)else (if %menu.id% EQU %menu.counter% (
-	wmic product where name="Mozilla" call uninstall /nointeractive
-	::start /wait firefox_ru.exe /s
-	echo firefox_ru - ok
-))
+		echo %menu.counter%. "C:\Program Files (x86)\Mozilla Firefox\uninstall\helper.exe"  -ms
+	)else (
+		if %menu.id% EQU %menu.counter% (
+			"C:\Program Files (x86)\Mozilla Firefox\uninstall\helper.exe" -ms
+		)
+	)
+	::if %menu.id% EQU %menu.counter% 
+		::(
+	rem Firefox
+	rem start /wait firefox_ru.exe /s
+	rem wmic product get name,version
+			::(wmic product list) > temp_Product_list.txt
+			::notpad temp_Product_list.txt
+			::wmic product list /?
+			
+			::cmd
+		::)
 :::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::
 ::	set /a menu.counter= %menu.counter%+1
