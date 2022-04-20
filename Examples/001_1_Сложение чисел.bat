@@ -1,6 +1,6 @@
 @echo off
 cd %~dp0
-Set /P Input=  Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ Ð´Ð»Ñ Ð¿Ñ€Ð¾Ð´Ð¾Ð»Ð¶ÐµÐ½Ð¸Ñ ^>
+Set /P Input=  ‚¢¥¤¨â¥ ¯ à®«ì ¤«ï ¯à®¤®«¦¥­¨ï ^>
 echo "Input=%Input%"
 set per1= 4
 echo "per1=%per1%"
