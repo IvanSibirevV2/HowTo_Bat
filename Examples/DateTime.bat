@@ -45,6 +45,7 @@ exit /b
 	call :DateTime.Now.Guid _Guid
 	echo DateTime.Now.Guid=%_Guid%
 	echo ################################################################
+	pause
 	TIMEOUT /T 10
 exit /b
 :DateTime.Now
