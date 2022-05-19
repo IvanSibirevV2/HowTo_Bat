@@ -72,7 +72,8 @@ rem Пункты меню вписывать сюда.
 		git add .
 		git status
 		git commit
-		git log
+		git log -3
+		echo git log .......
 		git push
 	))	
 	:::::::::::::::::::::::::::::::::::::::::::::::::::
