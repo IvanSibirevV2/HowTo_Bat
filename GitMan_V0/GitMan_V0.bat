@@ -109,6 +109,12 @@ rem Пункты меню вписывать сюда.
 	set /a menu_03268.counter= %menu_03268.counter%+1
 	if "%1" EQU "" (
 		if %menu_03268.id% EQU %menu_03268.counter% (<nul set /p strTemp=*)
+		echo %menu_03268.counter%. git push --all - послать на центральный репозиторий
+	)else (if %menu_03268.id% EQU %menu_03268.counter% (git push --all))
+	:::::::::::::::::::::::::::::::::::::::::::::::::::
+	set /a menu_03268.counter= %menu_03268.counter%+1
+	if "%1" EQU "" (
+		if %menu_03268.id% EQU %menu_03268.counter% (<nul set /p strTemp=*)
 		echo %menu_03268.counter%. cmd
 	)else (if %menu_03268.id% EQU %menu_03268.counter% (cmd))
 	:::::::::::::::::::::::::::::::::::::::::::::::::::
