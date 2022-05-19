@@ -67,6 +67,18 @@ rem Пункты меню вписывать сюда.
 	set /a menu_03268.counter= %menu_03268.counter%+1
 	if "%1" EQU "" (
 		if %menu_03268.id% EQU %menu_03268.counter% (<nul set /p strTemp=*)
+		echo %menu_03268.counter%. ScriptGit+add.+commit+push
+	)else (if %menu_03268.id% EQU %menu_03268.counter% (
+		git add .
+		git status
+		git commit
+		git log
+		git push
+	))	
+	:::::::::::::::::::::::::::::::::::::::::::::::::::
+	set /a menu_03268.counter= %menu_03268.counter%+1
+	if "%1" EQU "" (
+		if %menu_03268.id% EQU %menu_03268.counter% (<nul set /p strTemp=*)
 		echo %menu_03268.counter%. git init - Создать репозиторий
 	)else (if %menu_03268.id% EQU %menu_03268.counter% (git init))
 	:::::::::::::::::::::::::::::::::::::::::::::::::::
