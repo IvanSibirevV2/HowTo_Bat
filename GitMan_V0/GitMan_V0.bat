@@ -75,6 +75,8 @@ rem Пункты меню вписывать сюда.
 		git log -3
 		echo git log .......
 		git push
+		TIMEOUT /T 5
+		Exit
 	))	
 	:::::::::::::::::::::::::::::::::::::::::::::::::::
 	set /a menu_03268.counter= %menu_03268.counter%+1
