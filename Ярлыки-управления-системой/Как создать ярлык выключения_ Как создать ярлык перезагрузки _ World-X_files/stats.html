@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- saved from url=(0101)https://ulogin.ru/stats.html?r=62385&type=panel&xdm_e=https%3A%2F%2Fwd-x.ru&xdm_c=default5019&xdm_p=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <script src="./easyXDM.min.js"></script>
+</head>
+<body>
+    <script>
+        var query = {},
+                tmp = location.search.substr(1).split('&'),
+                tmp2, socket, supportStorage;
+        try {
+            supportStorage = !!(
+                    ('localStorage' in window && window['localStorage'] !== null) &&
+                    ('JSON' in window && window['JSON'] !== null && typeof window.JSON.parse !== 'undefined' && typeof window.JSON.stringify !== 'undefined')
+            );
+        } catch (e){
+            supportStorage = false;
+        }
+
+        for (var i = 0; i < tmp.length; i++) {tmp2 = tmp[i].split('=');query[tmp2[0]] = tmp2[1];}
+
+        function isIE(){
+            if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
+                var ieversion=Number(RegExp.$1);
+                if (ieversion<=9){
+                    return true;
+                }
+            }
+            return false;
+        }
+        function addEvent(object, event, handler){
+            if(object.addEventListener)
+                object.addEventListener(event, function(e){handler(object, e);}, false );
+            else if(object.attachEvent)
+                object.attachEvent('on'+event, function(e){handler(object, e);});
+            else
+                object['on' + event] = function(e){handler(object, e);}
+        }
+        function sendMessage(msg){
+            if (!query.xdm_c || !query.xdm_e || !query.xdm_p){
+                return;
+            }
+            if (!socket){
+                socket = new easyXDM.Socket({
+                    swf:isIE() ? 'https://ulogin.ru/js/easyxdm.swf' : '',
+                    onReady: function(){
+                        try{
+                            socket.postMessage(msg);
+                        }catch(e){
+                            window.setTimeout(function(){socket.postMessage(msg)}, 200);
+                        }
+                    }
+                });
+            }else{
+                try{
+                    socket.postMessage(msg);
+                }catch(e){
+                    window.setTimeout(function(){socket.postMessage(msg)}, 200);
+                }
+            }
+        }
+
+        addEvent(window,'load',function() {
+            var protocol = location.href.match(/^https/i) ? 'https://' : 'http://';
+            var img = new Image();
+            img.src = protocol+'counter.yadro.ru/hit?t26.6;r'+escape(document.referrer)+((typeof(screen)=='undefined')?'':';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+';'+Math.random();
+        });
+
+        if(supportStorage) sendMessage('weights:'+(typeof localStorage['providers_weight'] !== 'undefined' ? localStorage['providers_weight'] : ''));
+    </script>
+
+</body></html>
