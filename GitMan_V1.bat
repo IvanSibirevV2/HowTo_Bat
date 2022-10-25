@@ -88,6 +88,13 @@ rem Пункты меню вписывать сюда.
 	set /a menu_03268.counter= %menu_03268.counter%+1
 	if "%1" EQU "" (
 		if %menu_03268.id% EQU %menu_03268.counter% (<nul set /p strTemp=*)
+		echo %menu_03268.counter%. git clone [InputFrom] - Создать репозиторий
+	)else (if %menu_03268.id% EQU %menu_03268.counter% (Set /P InputFrom=  git clone [InputFrom]^>))
+	if "%1" NEQ "" (if %menu_03268.id% EQU %menu_03268.counter% (git clone %InputFrom%))
+	:::::::::::::::::::::::::::::::::::::::::::::::::::
+	set /a menu_03268.counter= %menu_03268.counter%+1
+	if "%1" EQU "" (
+		if %menu_03268.id% EQU %menu_03268.counter% (<nul set /p strTemp=*)
 		echo %menu_03268.counter%.  RD /s/q .git - Удалить папку Базы данных Git
 	)else (if %menu_03268.id% EQU %menu_03268.counter% (RD /s/q .git))
 	:::::::::::::::::::::::::::::::::::::::::::::::::::
