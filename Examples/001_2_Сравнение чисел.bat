@@ -14,4 +14,17 @@ if %per1% GEQ %per2% echo "per1 >= per2  "
 ::EQU	равно;NEQ	не равно
 ::LSS	меньше;LEQ	меньше или равно
 ::GTR	больше;GEQ	больше или равно
+::::::::::::::::::::::::::::::::::::::::::::
+echo ::::::::::::::::::::::::::::::::::::::::::::
+::set flag=true
+::if %flag% echo %flag%
+set flag=true
+echo %flag%
+
+setlocal
+set flag=trdsaue
+echo %flag% asd
+endlocal
+
+echo %flag%
 pause

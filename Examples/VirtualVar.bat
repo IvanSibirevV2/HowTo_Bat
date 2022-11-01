@@ -52,3 +52,7 @@ exit /b 0
 	pause
 	CLS
 exit /b 0
+::Попробуйте следующее. Оно возможно работает вернее
+::set FName=%54236452354275482%
+::set !FName!.id=01
+::echo %!FName!.id%

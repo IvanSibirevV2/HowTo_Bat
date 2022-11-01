@@ -16,6 +16,19 @@ rem Первая при @echo on - rem выводит в консоль
 rem Вторая :: - нельзя комментировать слеш "/"
 rem - возникают ошибки 
 ::Задержка по времени
-TIMEOUT /T 10
+TIMEOUT /T 1
+
+set flag=true
+echo flag=%flag%
+setlocal
+	set flagg=%flag%
+	echo setlocal
+	set flag=false
+	echo flag=%flag%
+	echo flagg=%flagg%
+	echo endlocal
+endlocal
+echo flag=%flag%
+
 ::Пауза
 pause
