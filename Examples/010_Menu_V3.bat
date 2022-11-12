@@ -9,45 +9,32 @@ exit /b
 
 :menu_03268
 setlocal
-set flag=true
-echo flag=%flag%
 	set _id=0
+	:menu_03268_begin
 	set _counter=-1
-	:::::::::::::::::::::::::::::::::::::::::::::::::::
-	set /a _counter= %_counter%+1
-	if "%1" EQU "" (if %_id% EQU %_counter% (<nul set /p strTemp=*)echo %_counter%. Exit
-	)else (if %_id% EQU %_counter% (Exit))
-	:::::::::::::::::::::::::::::::::::::::::::::::::::
-	set /a _counter= %_counter%+1
-	if "%1" EQU "" (if %_id% EQU %_counter% (<nul set /p strTemp=*)echo %_counter%. Menu_1
-	)else (if %_id% EQU %_counter% echo Menu_1)
-	:::::::::::::::::::::::::::::::::::::::::::::::::::	
-	
-	
-	
-	
-
-echo flag=%flag%
-
-	
-	
-	
-	::##################################
-		
-		
-
-		set /a menu_03268.counter= %menu_03268.counter%+1
-		if "%1" EQU "" (
-			if %menu_03268.id% EQU %menu_03268.counter% (<nul set /p strTemp=*)
-			echo %menu_03268.counter%. Menu_2
-		)else (if %menu_03268.id% EQU 2 echo Menu_2)
-		:::::::::::::::::::::::::::::::::::::::::::::::::::
-	::##################################
-	choice /c ews
-	if %ErrorLevel% EQU 1 (call menu_03268 Do)
-	if %ErrorLevel% EQU 2 ((set /a menu_03268.id= %menu_03268.id%-1)&(set %ErrorLevel%=0))
-	if %ErrorLevel% EQU 3 ((set /a menu_03268.id= %menu_03268.id%+1)&(set %ErrorLevel%=0))
-	if defined :menu_03268.IsDestruction goto :menu_03268.destruction
-goto :menu_03268	
+	cls
+	:::::::::::::::::::::::::::::::::::::::::::::::
+		set /a _counter= %_counter%+1
+		if "%1" EQU "" (if %_id% EQU %_counter% (<nul set /p strTemp=*)
+			echo %_counter%. Exit
+		)else (if %_id% EQU %_counter% (pause)&(Exit))
+		:::::::::::::::::::::::::::::::::::::::::::::::
+		set /a _counter= %_counter%+1
+		if "%1" EQU "" (if %_id% EQU %_counter% (<nul set /p strTemp=*)
+			echo %_counter%. Menu_1
+		)else (if %_id% EQU %_counter% (echo Menu_1)&(pause))
+		:::::::::::::::::::::::::::::::::::::::::::::::
+		set /a _counter= %_counter%+1
+		if "%1" EQU "" (if %_id% EQU %_counter% (<nul set /p strTemp=*)
+			echo %_counter%. Menu_2
+		)else (if %_id% EQU %_counter% (echo Menu_2)&(pause))
+	:::::::::::::::::::::::::::::::::::::::::::::::
+	if "%1" EQU "Do" (exit /b) else (choice /c ews)
+	if %ErrorLevel% EQU 1 ((echo e)&(call :menu_03268_begin Do)&(set %ErrorLevel%=0))
+	if %ErrorLevel% EQU 2 ((echo w)&(set /a _id= %_id%-1)&(set %ErrorLevel%=0))
+	if %ErrorLevel% EQU 3 ((echo s)&(set /a _id= %_id%+1)&(set %ErrorLevel%=0))
+	if %_id% LSS 0 set _id=%_counter%
+	if %_id% GTR %_counter% set _id=0
+	goto :menu_03268_begin
 endlocal
 exit /b
