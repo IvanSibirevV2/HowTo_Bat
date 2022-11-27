@@ -15,18 +15,15 @@ setlocal
 	cls
 	:::::::::::::::::::::::::::::::::::::::::::::::
 		set /a _counter= %_counter%+1
-		if "%1" EQU "" (if %_id% EQU %_counter% (<nul set /p strTemp=*)
-			echo %_counter%. Exit
-		)else (if %_id% EQU %_counter% (pause)&(Exit))
+		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo %_counter%. Exit)
+		)else (if %_id% EQU %_counter% (TIMEOUT /T 2)&(Exit))
 		:::::::::::::::::::::::::::::::::::::::::::::::
 		set /a _counter= %_counter%+1
-		if "%1" EQU "" (if %_id% EQU %_counter% (<nul set /p strTemp=*)
-			echo %_counter%. Menu_1
+		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo %_counter%. Menu_1)
 		)else (if %_id% EQU %_counter% (echo Menu_1)&(pause))
 		:::::::::::::::::::::::::::::::::::::::::::::::
 		set /a _counter= %_counter%+1
-		if "%1" EQU "" (if %_id% EQU %_counter% (<nul set /p strTemp=*)
-			echo %_counter%. Menu_2
+		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo %_counter%. Menu_2)
 		)else (if %_id% EQU %_counter% (echo Menu_2)&(pause))
 	:::::::::::::::::::::::::::::::::::::::::::::::
 	if "%1" EQU "Do" (exit /b) else (choice /c ews)
