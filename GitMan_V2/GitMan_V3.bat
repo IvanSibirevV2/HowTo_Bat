@@ -24,6 +24,9 @@ setlocal
 		)else (if %_id% EQU %_counter% (
 			git add .
 			git status
+			echo !!!
+			echo "AutoCommit_%date:~-4%.%date:~3,2%.%date:~0,2%_%TIME:~0,2%:%TIME:~3,2%:%TIME:~6,2%_%username%%"
+			echo !!!
 			git commit -m "AutoCommit_%date:~-4%.%date:~3,2%.%date:~0,2%_%TIME:~0,2%:%TIME:~3,2%:%TIME:~6,2%_%username%%"
 			git log -3
 			echo git log ......
