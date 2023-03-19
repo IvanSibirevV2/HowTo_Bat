@@ -20,11 +20,24 @@ setlocal
 		)else (if %_id% EQU %_counter% (TIMEOUT /T 2)&(Exit))
 		:::::::::::::::::::::::::::::::::::::::::::::::
 		set /a _counter= %_counter%+1
-		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo ScriptGit+add.+commit+push)
+		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo ScriptGit+add.+AutoCommit+push)
 		)else (if %_id% EQU %_counter% (
 			git add .
 			git status
-			git commit -m "%date:~-4%.%date:~3,2%.%date:~0,2%_%TIME:~0,2%:%TIME:~3,2%:%TIME:~6,2%_%username%%"
+			git commit -m "AutoCommit_%date:~-4%.%date:~3,2%.%date:~0,2%_%TIME:~0,2%:%TIME:~3,2%:%TIME:~6,2%_%username%%"
+			git log -3
+			echo git log .......
+			git push
+			TIMEOUT /T 5
+			Exit
+		))
+		:::::::::::::::::::::::::::::::::::::::::::::::
+		set /a _counter= %_counter%+1
+		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo ScriptGit+add.+Commit+push)
+		)else (if %_id% EQU %_counter% (
+			git add .
+			git status
+			git commit
 			git log -3
 			echo git log .......
 			git push
