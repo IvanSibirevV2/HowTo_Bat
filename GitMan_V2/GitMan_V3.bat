@@ -26,7 +26,7 @@ setlocal
 			git status
 			git commit -m "AutoCommit_%date:~-4%.%date:~3,2%.%date:~0,2%_%TIME:~0,2%:%TIME:~3,2%:%TIME:~6,2%_%username%%"
 			git log -3
-			echo git log .......
+			echo git log ......
 			git push
 			TIMEOUT /T 5
 			Exit
