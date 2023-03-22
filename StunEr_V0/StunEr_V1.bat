@@ -4,7 +4,7 @@
 @echo off
 cd %~dp0
 echo %cd%
-start notepad++ %0 
+::start notepad++ %0 
 ::::::::::::::::::::::::::::::::::::::::
 Setlocal EnableDelayedExpansion
 call :menu_03268
@@ -44,7 +44,7 @@ setlocal
 		::Перебираем Файлы
 		for %%a in (%cd%\*.*) do (
 			set /a _counter= !_counter!+1
-				if "%1" EQU "" ((if %_id% EQU !_counter! (<nul set /p strTemp=*))&(echo %%a)
+				if "%1" EQU "" ((if %_id% EQU !_counter! (<nul set /p strTemp=*))&(echo %%~na%%~xa)
 				)else (if %_id% EQU !_counter! (
 					::Открытие файла в блокноте
 					::notepad %%a
