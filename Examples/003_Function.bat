@@ -1,5 +1,8 @@
+:::::::::::::::::::::::::::::::::
 @echo off
 cd %~dp0
+start notepad++ %0 
+:::::::::::::::::::::::::::::::::
 	call:factorial_Test
 	call:factorial_V2_Test
 pause

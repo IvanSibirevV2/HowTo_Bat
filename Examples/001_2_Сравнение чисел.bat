@@ -1,5 +1,8 @@
+:::::::::::::::::::::::::::::::::
 @echo off
 cd %~dp0
+start notepad++ %0 
+:::::::::::::::::::::::::::::::::
 set /a per1= 20
 echo "per1=%per1%"
 set /a per2= 3

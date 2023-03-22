@@ -1,5 +1,8 @@
+:::::::::::::::::::::::::::::::::
 @echo off
 cd %~dp0
+start notepad++ %0 
+:::::::::::::::::::::::::::::::::
 Echo %CD%
 Echo ****************************
 Echo cmd.exe will be started

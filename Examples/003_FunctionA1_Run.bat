@@ -1,5 +1,8 @@
+:::::::::::::::::::::::::::::::::
 @echo off
 cd %~dp0
+start notepad++ %0 
+:::::::::::::::::::::::::::::::::
 	call :Main
 pause
 exit /b
