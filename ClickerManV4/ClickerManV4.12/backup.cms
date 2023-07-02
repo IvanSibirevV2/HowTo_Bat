@@ -1,26 +1,16 @@
-// 28.04.2023
+
+// Запуск из командной строки
 #name "New Script"
+#autorun
 
-					 
-WAITMS(100)
-MOVE(1049,221)
-LCLICK(1049,221)
+KEYDOWN(#3)
+WAITMS(50)
+KEYUP(#3)
+WAITMS(50)
+KEYDOWN(#DOWN)
+WAITMS(50)
+KEYUP(#DOWN)
+WAITMS(50)
 
-
-FOR($a,$a<10) // яютЄюЁ хь 3 Ёрчр
-
-WAITMS(1000)
-MOVE(585,409)
-LCLICK(585,409)
-
-WAITMS(100)
-MOVE(645,323)
-//LCLICK(645,323)
-
-END_CYC
-
-
-print("Hello, world!")
-
-HALT
 HALT(1)
+

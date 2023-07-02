@@ -1,10 +1,10 @@
-// 02.07.2023
+
+// Запуск из командной строки
 #name "New Script"
 #autorun
-//$_xmouse
-//$_ymouse
 
-FOR($a, $a < 5)
+FOR($a, $a <5)
+
 MOVER(25,0)
 WAITMS(50)
 MOVER(0,25)
@@ -15,10 +15,5 @@ MOVER(0,-25)
 WAITMS(50)
 END_CYC
 
-
-
-
-
 print("Hello, world!")
-HALT
-
+HALT(1)
