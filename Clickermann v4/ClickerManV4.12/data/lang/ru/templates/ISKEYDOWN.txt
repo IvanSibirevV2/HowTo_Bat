@@ -1,0 +1,3 @@
+IF(iskeydown(#space)=1)
+ logwrite("space!")
+END_IF

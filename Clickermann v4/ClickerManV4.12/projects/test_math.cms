@@ -1,0 +1,43 @@
+// New Script
+// Author: Anonymous
+// Version: 1.0 (01.04.2014)
+
+#name "New Script"
+
+// begin your script here
+
+
+// math
+print("math")
+print("6  : ", 2 + 2 * 2)
+print("8  : ", (2 + 2) * 2)
+print("50 : ", 10 * 10 - 50)
+print("2.5: ", 5 / 2)
+
+// bitwise
+print("bitwise")
+print("15 : ", 5 | 10)
+print("5  : ", 15 & 5)
+print("5  : ", 15 ^ 10)
+
+
+// bool
+print("bool (num)")
+print("1  : ", 2 = 2)
+print("0  : ", 2 = 3)
+print("1  : ", 2 ! 3)
+print("0  : ", 2 > 3)
+print("1  : ", 2 < 3)
+
+
+// str
+print("bool (str)")
+print("1  : ", "ab" = "ab")
+print("0  : ", "ab" = "ba")
+print("1  : ", "ab" ! "ba")
+print("1  : ", "abc" > "ab")
+print("0  : ", "abc" < "ab")
+
+
+
+halt // for single run

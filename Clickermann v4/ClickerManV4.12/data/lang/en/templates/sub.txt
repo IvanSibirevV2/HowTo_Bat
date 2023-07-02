@@ -1,0 +1,11 @@
+// subprogram
+
+SUB (sub_name)
+  // body
+  print("i'm sub")
+
+end_sub
+
+
+// call subprogram
+gosub(sub_name)

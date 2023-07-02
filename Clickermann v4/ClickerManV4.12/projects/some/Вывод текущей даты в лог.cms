@@ -1,0 +1,28 @@
+$th = $_time_h
+$tm = $_time_m
+$ts = $_time_s
+$dd = $_date_d
+$dm = $_date_m
+$dy = $_date_y
+IF(STRLEN($th)<2)
+   $th = STRCONCAT ("0", $th)
+END_IF
+IF(STRLEN($tm)<2)
+   $tm = STRCONCAT ("0", $tm)
+END_IF
+IF(STRLEN($ts)<2)
+   $ts = STRCONCAT ("0", $ts)
+END_IF
+IF(STRLEN($dd)<2)
+   $dd = STRCONCAT ("0", $dd)
+END_IF
+IF(STRLEN($dm)<2)
+   $dm = STRCONCAT ("0", $dm)
+END_IF
+IF(STRLEN($dy)<2)
+   $dy = STRCONCAT ("0", $dy)
+END_IF
+
+LOGWRITE ($th,":",$tm,":",$ts," ",$dd,".",$dm,".",$dy)
+
+halt

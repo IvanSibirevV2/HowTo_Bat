@@ -1,0 +1,26 @@
+// 28.04.2023
+#name "New Script"
+
+					 
+WAITMS(100)
+MOVE(1049,221)
+LCLICK(1049,221)
+
+
+FOR($a,$a<10) // повторяем 3 раза
+
+WAITMS(1000)
+MOVE(585,409)
+LCLICK(585,409)
+
+WAITMS(100)
+MOVE(645,323)
+//LCLICK(645,323)
+
+END_CYC
+
+
+print("Hello, world!")
+
+HALT
+HALT(1)

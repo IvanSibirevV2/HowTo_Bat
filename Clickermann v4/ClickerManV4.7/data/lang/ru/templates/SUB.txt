@@ -1,0 +1,5 @@
+GOSUB(sub_name)
+
+SUB (sub_name)
+  // body
+END_SUB

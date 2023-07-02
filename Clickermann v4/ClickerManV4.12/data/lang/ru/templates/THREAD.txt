@@ -1,0 +1,6 @@
+// поток
+THREAD(thr_name) 
+   // тело потока
+
+   waitms(10) // задержка для разгрузки CPU
+END_THREAD
