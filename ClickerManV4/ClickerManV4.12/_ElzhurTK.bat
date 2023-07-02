@@ -12,7 +12,16 @@ echo #autorun
 echo.
 echo LCLICK(473,699^)
 echo WAITMS(50^)
-call :presMarks 2 3 4 5
+::2‘-121_‘¥β¨ ’¥αβ 1
+::call :presMarks 5 5 0 0 0 5 0 5 0 0 0 5 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+::2‘-121_‘¥β¨ ’¥αβ 2
+::call :presMarks 5 0 0 0 0 0 0 0 0 0 0 5 
+::2‘-121_‘¥β¨ ’¥αβ 3
+::call :presMarks 5 0 0 0 0 0 0 0 0 0 0 5 
+:: β ª ¤ «¥¥..
+call :presMarks 5 0 5 0 0 5 5 5 5 0 0 5 0 5 5 5 5 0 5 0 0 0 5 0 0 0 0 5 5 5
+ 
+
 echo.
 echo print("Hello, world!"^)
 echo HALT(1^)
@@ -20,9 +29,7 @@ echo HALT(1^)
 echo ::::::::::::::::::::::::::::::
 ::notepad %LocalTemp%
 start Clickermann.exe %LocalTemp%
-
-pause
-DEL %LocalTemp%
+::pause
 TIMEOUT /T 5
 exit /b
 :::::::::::::::::::::::::::::::::::::::
