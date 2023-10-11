@@ -1,0 +1,69 @@
+// 22.08.2023
+#name "New Script"
+//ƒелает скрин €ндеск дликом и кладет его в конец
+// заранее открытого юпитера по выставленному скриншоту
+#include "Scrin_In_YandexDisk.cms"
+
+$t=75
+
+//ждем отжати€ клавиши запуска
+WHILE(iskeydown(192)=0)
+WAITMS($t)
+END_CYC
+
+
+Scrin_In_YandexDisk()
+
+//клин на юпитер
+LCLICK(415,5)
+//На стационарнике
+WAITMS($t)
+//клик на пустое поле
+//На ноутбуке
+LCLICK(56,421)
+//На стационарнике
+//LCLICK(415,5)
+WAITMS($t)
+KEYDOWN(#PAGEDOWN)
+WAITMS($t)
+KEYUP(#PAGEDOWN)
+WAITMS($t)
+KEYDOWN(#DOWN)
+WAITMS($t)
+KEYUP(#DOWN)
+WAITMS($t)
+//клик на добавить
+KEYDOWN(#B)
+WAITMS($t)
+KEYUP(#B)
+WAITMS($t)
+//клик на маркдаун выбрать
+KEYDOWN(#M)
+WAITMS($t)
+KEYUP(#M)
+WAITMS($t)
+//клик на редактировать
+KEYDOWN(#ENTER)
+WAITMS($t)
+KEYUP(#ENTER)
+WAITMS($t)
+//вставить
+KEYDOWN (#CTRL)
+WAITMS ($t)
+KEYDOWN (#V)
+WAITMS ($t)
+KEYUP (#V)
+KEYUP (#CTRL)
+WAITMS ($t)
+//применить
+KEYDOWN (#SHIFT)
+WAITMS ($t)
+KEYDOWN (#ENTER)
+WAITMS ($t)
+KEYUP (#ENTER)
+KEYUP (#SHIFT)
+WAITMS ($t)
+//вернутьс€ обратно
+//LCLICK(555,20)
+//WAITMS($t)
+HALT

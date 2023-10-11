@@ -1,0 +1,38 @@
+// 22.08.2023
+#name "New Script"
+//Делает скрин яндеск дликом и кладет его в конец
+// заранее открытого юпитера по выставленному скриншоту
+$t=75
+SUB(Scrin_In_YandexDisk)
+//ждем отжатия клавиши запуска
+WHILE(iskeydown(192)=1)
+WAITMS($t)
+END_CYC
+
+//Прожимаем скрин с яндекс диска
+KEYDOWN (#CTRL)
+WAITMS ($t)
+KEYDOWN (#SHIFT)
+WAITMS ($t)
+KEYDOWN (#1)
+WAITMS ($t)
+KEYUP (#1)
+KEYUP (#SHIFT)
+KEYUP (#CTRL)
+
+//Пользователь выставляет рамку
+//Ждем открытия рамки
+WHILE(wndfind("Яндекс.Диск")=0)
+WAITMS($t)
+END_CYC
+//Пользователь обрезает рамку
+//Пользователь нажиает скпировать в яндекс диске
+//Ждем закрытия яндекс диска
+WHILE(wndfind("Яндекс.Диск")!0)
+WAITMS($t)
+END_CYC
+
+END_SUB
+
+//Scrin_In_YandexDisk()
+//HALT
