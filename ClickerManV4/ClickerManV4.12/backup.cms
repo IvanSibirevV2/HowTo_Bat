@@ -1,46 +1,48 @@
-// 23.08.2023
+// 12.10.2023
 #name "New Script"
-#include "Scrin_In_YandexDisk.cms"
-$t=75
-WHILE(iskeydown(192)=1)
-WAITMS($t)
-END_CYC
+$t=80
+//WAITMS ($t)
+//WHILE(iskeydown(222)=0)
+//WAITMS ($t)
+//END_CYC
+//WAITMS ($t)
+WAITMS (250)
 
-Scrin_In_YandexDisk()
-
-LCLICK(562,701)
-
-WAITMS($t)
-LCLICK(30,214)
-WAITMS($t)
-KEYDOWN(#DELETE)
-WAITMS($t)
-KEYUP(#DELETE)
-WAITMS($t)
-KEYDOWN(#TAB)
-WAITMS($t)
-KEYUP(#TAB)
-WAITMS($t)
-KEYDOWN(#ENTER)
-WAITMS($t)
-KEYUP(#ENTER)
-WAITMS($t)
-KEYDOWN (#CTRL)
+KEYDOWN (#ALT)
 WAITMS ($t)
-KEYDOWN (#V)
+KEYDOWN (#F4)
 WAITMS ($t)
-KEYUP (#V)
-KEYUP (#CTRL)
+KEYUP (#F4)
 WAITMS ($t)
-LCLICK(280,61)
+KEYUP (#ALT)
+WAITMS ($t)
+
+KEYDOWN (#DOWN)
+WAITMS ($t)
+KEYUP (#DOWN)
+WAITMS ($t)
+KEYDOWN (#UP)
+WAITMS ($t)
+KEYUP (#UP)
+WAITMS ($t)
+KEYDOWN (#DELETE)
+WAITMS ($t)
+KEYUP (#DELETE)
+WAITMS ($t)
+
+KEYDOWN (#DOWN)
+WAITMS ($t)
+KEYUP (#DOWN)
+WAITMS ($t)
+KEYDOWN (#UP)
+WAITMS ($t)
+KEYUP (#UP)
+WAITMS ($t)
 
 
-//KEYDOWN(#ENTER)
-//WAITMS($t)
-//KEYUP(#ENTER)
-//WAITMS($t)
-//LCLICK(829,149)
-//WAITMS($t)
+KEYDOWN (#ENTER)
+WAITMS ($t)
+KEYUP (#ENTER)
+WAITMS ($t)
 
-print("Hello, world!")
 HALT
