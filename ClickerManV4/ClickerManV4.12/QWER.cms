@@ -20,4 +20,4 @@ SUB(_MouseDanStep)
 	END_CYC
 END_SUB
 _MouseDanStep()
-HALT
+HALT(1)
