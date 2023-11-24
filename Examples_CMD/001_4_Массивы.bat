@@ -1,7 +1,7 @@
 :::::::::::::::::::::::::::::::::
 @echo off
+if "%cd%\" EQU "%~dp0" start notepad++ %0 
 cd %~dp0
-start notepad++ %0 
 :::::::::::::::::::::::::::::::::
 :: Создание массива А:
 call :array new A "'one','two','three','foo','bar'"

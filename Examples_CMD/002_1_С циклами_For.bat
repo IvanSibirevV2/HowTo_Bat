@@ -1,7 +1,7 @@
 :::::::::::::::::::::::::::::::::
 @echo off
+if "%cd%\" EQU "%~dp0" start notepad++ %0 
 cd %~dp0
-start notepad++ %0 
 :::::::::::::::::::::::::::::::::
 for /L %%i in (1,1,10) do (echo i = %%i)
 echo.

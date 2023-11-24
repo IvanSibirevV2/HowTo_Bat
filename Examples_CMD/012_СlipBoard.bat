@@ -1,7 +1,8 @@
+:::::::::::::::::::::::::::::::::
 @echo off
+if "%cd%\" EQU "%~dp0" start notepad++ %0 
 cd %~dp0
-:::::::::::::::::::::::::::::::
-set FileName="_%date:.=,%_%time::=,%_%username%.bat"
+:::::::::::::::::::::::::::::::::set FileName="_%date:.=,%_%time::=,%_%username%.bat"
 echo %FileName%
 (
 	echo @echo off

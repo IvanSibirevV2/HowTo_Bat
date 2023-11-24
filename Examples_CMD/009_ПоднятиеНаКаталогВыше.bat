@@ -1,7 +1,7 @@
 :::::::::::::::::::::::::::::::::
 @echo off
+if "%cd%\" EQU "%~dp0" start notepad++ %0 
 cd %~dp0
-start notepad++ %0 
 :::::::::::::::::::::::::::::::::
 echo %cd%
 CD ..\

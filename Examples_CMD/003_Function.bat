@@ -1,7 +1,7 @@
 :::::::::::::::::::::::::::::::::
 @echo off
+if "%cd%\" EQU "%~dp0" start notepad++ %0 
 cd %~dp0
-start notepad++ %0 
 :::::::::::::::::::::::::::::::::
 	call:factorial_Test
 	call:factorial_V2_Test
