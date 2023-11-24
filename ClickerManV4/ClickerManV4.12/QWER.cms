@@ -2,7 +2,7 @@
 //////////////////////////////////////////
 //Настройки Запуска
 #name "New Script"
-#autorun
+//#autorun
 //////////////////////////////////////////
 //Шаблоны упихнутые в функции чтобы не быть никогда запущеными
 //Импортируемое меню редактора
@@ -307,13 +307,10 @@ SUB(_KEY,KEYCode)
  _WAITMS()
 END_SUB
 SUB(_KEY_Combo,KEYCode1,KEYCode2)
- KEYDOWN (KEYCode1)
+ KEYDOWN ($KEYCode1)
  _WAITMS()
- KEYDOWN (KEYCode2)
- _WAITMS()
- KEYUP (KEYCode2)
- _WAITMS()
- KEYUP (KEYCode1)
+ _KEY($KEYCode2)
+ KEYUP ($KEYCode1)
  _WAITMS()
 END_SUB
 
@@ -346,16 +343,29 @@ $qwer=0
 
 //  THREAD() - Поток;	THREAD(name, 1);
 //  END_THREAD - Конец потока;	END_THREAD; 
-//  SETTHREAD - Смена состояния потока;	SETTHREAD (name, 0) // 0 - Пауза, 1 - Старт, 2 - Стоп;
+//  SETTHREAD - Смена состояния поока;	SETTHREAD (name, 0) // 0 - Пауза, 1 - Старт, 2 - Стоп;
+EXECUTE("start https://kip.eljur.ru/")
 
-$var1 = RADIOBOX("Программа автоматизации элжура", "1 Настройка программы", "2 Птица", "3 Рыба", "4 Мясо", "5 Птица", "6 Рыба", "7 Мясо", "8 Птица", "9 Рыба", "10 Мясо", "11 Птица", "12 Рыба");
+_WAITMS()
+_KEY_Combo(#CTRL,109)
 
-IF($var1 = "1;")
+//while(DIALOGBOX("ЭЛЖУР открылся в браузере. Вы залогинились", 1, 2)!1)
+//  waitms(50)
+//END_CYC
 
-END_IF
+//_KEY_Combo_(#CTRL,107)
+//_KEY_Combo_(#CTRL,107)
+
+//while(DIALOGBOX("В браузере выставлена 50% масштаба. Группа выбрана Курсор стоит в верхнем левом углу", 1, 2)=2)
+// waitms(50)
+//END_CYC
+
+//HINTPOPUP($dialog, "Заголовок");
+
+//IF($var1 = "1;")
+//END_IF
 
 
-HINTPOPUP("Сообщение:"+$var1, "Заголовок");
 //_MouseDanStep()
 
 //Завершение программы закрытием
