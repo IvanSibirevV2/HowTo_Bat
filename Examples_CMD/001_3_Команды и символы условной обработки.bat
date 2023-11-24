@@ -1,3 +1,4 @@
+
 :::::::::::::::::::::::::::::::::
 @echo off
 if "%cd%\" EQU "%~dp0" start notepad++ %0 
@@ -46,3 +47,5 @@ set varname="new&name"
 TIMEOUT /T 10
 exit 
 pause
+exit /b
+

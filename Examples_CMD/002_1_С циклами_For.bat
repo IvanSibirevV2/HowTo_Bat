@@ -12,3 +12,4 @@ for  %%f in (*.txt *.exe) do (echo %%~nxf)
 for /d %%a in (*) do echo %%a
 for /r %%a in (*.*) do echo %%a
 pause
+exit /b

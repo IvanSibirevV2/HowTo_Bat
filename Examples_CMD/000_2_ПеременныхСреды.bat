@@ -22,3 +22,4 @@ if defined qwe (echo sdfghjkl)
 ::Echo %FileWrite%
 TIMEOUT /T 10
 pause
+exit /b

@@ -1,3 +1,4 @@
+
 :::::::::::::::::::::::::::::::::
 @echo off
 if "%cd%\" EQU "%~dp0" start notepad++ %0 

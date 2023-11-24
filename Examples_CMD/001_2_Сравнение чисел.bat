@@ -31,3 +31,4 @@ endlocal
 
 echo %flag%
 pause
+exit /b

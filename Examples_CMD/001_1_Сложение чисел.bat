@@ -12,3 +12,4 @@ echo "per2=%per2%"
 set /a rez= %per1%+%per2%
 echo "rez=%rez%"
 pause
+exit /b

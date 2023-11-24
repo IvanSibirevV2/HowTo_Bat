@@ -1,4 +1,5 @@
 :::::::::::::::::::::::::::::::::
+
 @echo off
 if "%cd%\" EQU "%~dp0" start notepad++ %0 
 cd %~dp0
@@ -11,3 +12,4 @@ echo %result%
 :: Изменение нулевого элемента
 call :array set A 0 "первый элемент"ы
 pause
+exit /b

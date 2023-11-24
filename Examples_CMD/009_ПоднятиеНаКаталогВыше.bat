@@ -11,3 +11,4 @@ Echo cmd.exe will be started
 Echo Await and send _exit_
 cmd.exe
 TIMEOUT /T 100
+exit /b

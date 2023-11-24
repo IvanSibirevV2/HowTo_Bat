@@ -35,3 +35,4 @@ echo flag=%flag%
 echo Привет Мир
 ::Пауза
 pause
+exit /b

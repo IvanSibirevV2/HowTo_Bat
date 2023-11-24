@@ -11,3 +11,4 @@ Echo Await and send _exit_
 ::Ноесли Вы пишете батник прокатит и так
 cmd.exe
 TIMEOUT /T 100
+exit /b
