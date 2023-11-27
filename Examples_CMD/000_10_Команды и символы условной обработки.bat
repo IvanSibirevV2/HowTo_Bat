@@ -1,9 +1,8 @@
-
-:::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::
 @echo off
-if "%cd%\" EQU "%~dp0" start notepad++ %0 
+if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
 cd %~dp0
-:::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::
 echo "0"
 echo Bla & echo Bla & echo ...Off
 ::& [...]::команда1 & команда2	
@@ -44,8 +43,6 @@ echo "4"
 set varname=new^&name
 set varname="new&name"
 ::Это не прокатит::set varname=new&name
-TIMEOUT /T 10
-exit 
-pause
-exit /b
-
+::::::::::::::::::::::::::::::::::::::::::::
+(TIMEOUT /T 1)&&(pause)&&(exit /b)
+:::::::::::::::::::::::::::::::::::::::::::::
