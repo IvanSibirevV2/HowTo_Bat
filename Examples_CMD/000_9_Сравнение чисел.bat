@@ -1,8 +1,8 @@
-:::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::
 @echo off
-if "%cd%\" EQU "%~dp0" start notepad++ %0 
+if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
 cd %~dp0
-:::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::
 set /a per1= 20
 echo "per1=%per1%"
 set /a per2= 3
@@ -18,17 +18,5 @@ if %per1% GEQ %per2% echo "per1 >= per2  "
 ::LSS	меньше;LEQ	меньше или равно
 ::GTR	больше;GEQ	больше или равно
 ::::::::::::::::::::::::::::::::::::::::::::
-echo ::::::::::::::::::::::::::::::::::::::::::::
-::set flag=true
-::if %flag% echo %flag%
-set flag=true
-echo %flag%
-
-setlocal
-set flag=trdsaue
-echo %flag% asd
-endlocal
-
-echo %flag%
-pause
-exit /b
+(TIMEOUT /T 1)&&(pause)&&(exit /b)
+:::::::::::::::::::::::::::::::::::::::::::::
