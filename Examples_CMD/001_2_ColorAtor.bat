@@ -1,16 +1,9 @@
-:::::::::::::::::::::::::::::::::
-@echo OFF
+:::::::::::::::::::::::::::::::::::::::::::::
+@echo off
+if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
 cd %~dp0
-	::Если параметр пустой, то запускай мэин
-	if "%1"=="" (call :ColorAtor.Main)
-	::Если параметр мэин, то запускай мэин
-	if %1 EQU ":Main" (call :ColorAtor.Main)
-	if %1 EQU ":echo" (call :ColorAtor.echo %2 %3 %4)
-pause
-exit /b
-:ColorAtor.Main
+:::::::::::::::::::::::::::::::::::::::::::::
 	echo ColorAtor.bat
-	echo BLL-Bat Lite Library
 	echo.
 	echo :ColorAtor.echo
 	echo.
@@ -62,10 +55,9 @@ exit /b
 	call :echo 0E "www" /
 	call :echo 4 "RRR"
 	
-pause	
-exit /b
-:::::::::::::::::::::::::::::::::
-:ColorAtor.echo
+:::::::::::::::::::::::::::::::::::::::::::::
+(TIMEOUT /T 1)&&(pause)&&(exit /b)
+:::::::::::::::::::::::::::::::::::::::::::::
 :echo
 md "TempColor"
 pushd "%~dp0"
