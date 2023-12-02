@@ -1,8 +1,8 @@
-:::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::
 @echo off
-if "%cd%\" EQU "%~dp0" start notepad++ %0 
+if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
 cd %~dp0
-:::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::
 ::https://celitel.info/klad/nhelp/helpbat.php?dcmd=ex_string
 set VarText=СтрокаБезПробела
 echo %VarText%

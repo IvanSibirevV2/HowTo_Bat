@@ -3,12 +3,15 @@
 if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
 cd %~dp0
 :::::::::::::::::::::::::::::::::::::::::::::
-	set A=WWW
-	::call :defVar A www
-	echo A= %A%
-	call :getVar A B
+	::Это виртуальные переменные
+	::Зачем оно так надо,Чтобы создавать массивы напимер
+	::Способ первый
+	set A8=WWW
+	echo A8= %A8%
+	call :getVar A8 B
 	echo B=%B%
 	echo :::::::::::::::::::::::::::::::::::::::::::::
+	::Способ второй
 	set FName=54236452354275482
 	set !FName!.id=010
 	echo %FName%
