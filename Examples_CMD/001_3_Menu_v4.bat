@@ -7,16 +7,37 @@ cd %~dp0
 :::::::::::::::::::::::::::::::::::::::::::::
 echo %cd%
 ::call :menu_03268
+call :MenuEngine 4 :Mark1 :Mark2 :Mark3
 :::::::::::::::::::::::::::::::::::::::::::::
 (TIMEOUT /T 1)&&(pause)&&(exit /b)
 :::::::::::::::::::::::::::::::::::::::::::::
 
 :MenuEngine
+echo %*
 setlocal
-
+:MenuEngine_For_Begine
+ SHIFT /2
+ echo %1 %2 %3 %4 %5
+ if "%2" EQU "" goto :MenuEngine_For_end
+ ::...
+goto :MenuEngine_For_Begine 
+:MenuEngine_For_end
 endlocal
+echo %*
+echo %1 %2 %3 %4 %5
+ 
 exit /b
 
+
+:Mark1
+echo Mark1
+exit /b
+:Mark2
+echo Mark2
+exit /b
+:Mark3
+echo Mark3
+exit /b
 :menu_03268
 setlocal
 	set _id=0
@@ -45,3 +66,8 @@ setlocal
 	goto :menu_03268_begin
 endlocal
 exit /b
+
+:::::::::::::::::::::::::::::::::::::::::::::
+:getVar
+	If "%3" EQU "" (call :getVar %1 %2 %%%1%%) else set %2=%3
+exit /b 0

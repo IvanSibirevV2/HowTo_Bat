@@ -34,6 +34,12 @@ echo Уничтожение массива
 set A.Count=
 for /L %%i in (0,1,3) do (set A.%%i= )
 for /L %%i in (0,1,3) do (echo A.%%i =!A.%%i! )
-::::::::::::::::::::::::::::::::::::::::::::
+echo ::::::::::::::::::::::::::::::::::::::::::::
+echo Да вот только массивы не так просты
+set var=1 2;56  3
+for %%i in (%var%) do  (echo %%i)
+set count=0
+for %%i in (%var%) do  (set /a count=!count!+1)
+echo count=%count%
 (TIMEOUT /T 1)&&(pause)&&(exit /b)
 :::::::::::::::::::::::::::::::::::::::::::::
