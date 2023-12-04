@@ -1,73 +1,76 @@
-::–†–∞—Å—Å–º–∞—Ç—Ä–∏–≤–∞–µ–º –≤–æ–∑–º–æ–∂–Ω–æ—Å—Ç—å —Ç–æ–≥–æ —á—Ç–æ 
-::–ú–µ–Ω—é—à–∫–∞ –º–æ–∂–µ—Ç –±—ã—Ç—å —Å–ª–æ–∂–Ω–µ–µ —á–µ–º –ø—Ä–æ—Å—Ç–æ –ø–∞–ø–∫–∞ —Å –º–∏–∫—Ä–æ–±–∞—Ç–Ω–∏–∫–∞–º–∏
+::ê†··¨†‚‡®¢†•¨ ¢Æß¨Æ¶≠Æ·‚Ï ‚Æ£Æ Á‚Æ 
+::å•≠ÓË™† ¨Æ¶•‚ °Î‚Ï ·´Æ¶≠•• Á•¨ Ø‡Æ·‚Æ Ø†Ø™† · ¨®™‡Æ°†‚≠®™†¨®
 :::::::::::::::::::::::::::::::::::::::::::::
 @echo off
 if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
 cd %~dp0
+
+setlocal EnableDelayedExpansion
 :::::::::::::::::::::::::::::::::::::::::::::
 echo %cd%
 ::call :menu_03268
-call :MenuEngine 4 :Mark1 :Mark2 :Mark3
+call :MenuEngine :Mark1 :Mark2 :Mark3
 :::::::::::::::::::::::::::::::::::::::::::::
 (TIMEOUT /T 1)&&(pause)&&(exit /b)
 :::::::::::::::::::::::::::::::::::::::::::::
-
 :MenuEngine
-echo %*
 setlocal
-:MenuEngine_For_Begine
- SHIFT /2
- echo %1 %2 %3 %4 %5
- if "%2" EQU "" goto :MenuEngine_For_end
- ::...
-goto :MenuEngine_For_Begine 
-:MenuEngine_For_end
+::echo %*
+ set _id=0
+ :MenuEngine_begin
+ set _counter=0
+ set _target=
+  ::ÇÎ¢Æ§ ≠† Ì™‡†≠
+  for %%i in (%*) do (
+   call %%i
+   set /a _counter=!_counter!+1
+  )
+::  (set _target= %%i)&
+  choice /c ews  
+  if %ErrorLevel% EQU 2 ((echo w)&(set /a _id= %_id%-1)&(set %ErrorLevel%=0))
+  if %ErrorLevel% EQU 3 ((echo s)&(set /a _id= %_id%+1)&(set %ErrorLevel%=0))
+  if %_id% LSS 0 set /a _id=%_counter%-1
+  if %_id% GEQ %_counter% set _id=0
+  set _counter=%_id% 
+  if %ErrorLevel% EQU 1 (
+    echo e
+	echo __%_target%__
+    call %_target% do
+    echo ewww
+  )
+  set _counter=0
+  ::set _FlagDo=true
+  ::call %%i
+  ::set %ErrorLevel%=0
+  ::set _FlagDo=false
+ goto :MenuEngine_begin
 endlocal
-echo %*
-echo %1 %2 %3 %4 %5
- 
 exit /b
-
 
 :Mark1
-echo Mark1
+if "%1" EQU "" (
+ if "%_id%" EQU "%_counter%" (
+  <nul set /p strTemp=*
+  set _target=%0
+ )
+ echo %_counter%. %0. Exit
+)else (if %_id% EQU %_counter% (TIMEOUT /T 2)&(Exit))
 exit /b
 :Mark2
-echo Mark2
+if "%1" EQU "" (
+ if "%_id%" EQU "%_counter%" (
+  <nul set /p strTemp=*
+  set _target=%0
+ )
+ echo %_counter%. %0. Menu_2
+)else (if %_id% EQU %_counter% (echo ________Menu_1)&(pause))
 exit /b
 :Mark3
-echo Mark3
+if "%1" EQU "" (
+ if "%_id%" EQU "%_counter%" (
+  <nul set /p strTemp=*
+  set _target=%0
+ )
+ echo %_counter%. %0. Menu_3
+)else (if %_id% EQU %_counter% (echo ________Menu_2)&(pause))
 exit /b
-:menu_03268
-setlocal
-	set _id=0
-	:menu_03268_begin
-	set _counter=-1
-	cls
-	:::::::::::::::::::::::::::::::::::::::::::::::
-		set /a _counter= %_counter%+1
-		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo %_counter%. Exit)
-		)else (if %_id% EQU %_counter% (TIMEOUT /T 2)&(Exit))
-		:::::::::::::::::::::::::::::::::::::::::::::::
-		set /a _counter= %_counter%+1
-		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo %_counter%. Menu_1)
-		)else (if %_id% EQU %_counter% (echo Menu_1)&(pause))
-		:::::::::::::::::::::::::::::::::::::::::::::::
-		set /a _counter= %_counter%+1
-		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo %_counter%. Menu_2)
-		)else (if %_id% EQU %_counter% (echo Menu_2)&(pause))
-	:::::::::::::::::::::::::::::::::::::::::::::::
-	if "%1" EQU "Do" (exit /b) else (choice /c ews)
-	if %ErrorLevel% EQU 1 ((echo e)&(call :menu_03268_begin Do)&(set %ErrorLevel%=0))
-	if %ErrorLevel% EQU 2 ((echo w)&(set /a _id= %_id%-1)&(set %ErrorLevel%=0))
-	if %ErrorLevel% EQU 3 ((echo s)&(set /a _id= %_id%+1)&(set %ErrorLevel%=0))
-	if %_id% LSS 0 set _id=%_counter%
-	if %_id% GTR %_counter% set _id=0
-	goto :menu_03268_begin
-endlocal
-exit /b
-
-:::::::::::::::::::::::::::::::::::::::::::::
-:getVar
-	If "%3" EQU "" (call :getVar %1 %2 %%%1%%) else set %2=%3
-exit /b 0
