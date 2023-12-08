@@ -36,31 +36,41 @@ set _6=0x36
 set _7=0x37
 set _8=0x38
 set _9=0x39
-set _A=0x41
-set _B=0x42
-set _C=0x43
-set _D=0x44
-set _E=0x45
-set _F=0x46
-set _G=0x47
-set _H=0x48
-set _I=0x49
-set _J=0x4A
-set _K=0x4B
-set _L=0x4C
-set _M=0x4D
-set _N=0x4E
-set _O=0x4F
+(set _A=0x41)&&(set _+A=0d41)&&(set _-A=0u41)
+(set _B=0x42)&&(set _+B=0d42)&&(set _-B=0u42)
+(set _C=0x43)&&(set _+C=0d43)&&(set _-C=0u43)
+(set _D=0x44)&&(set _+D=0d44)&&(set _-D=0u44)
+(set _E=0x45)&&(set _+E=0d45)&&(set _-E=0u45)
+(set _F=0x46)&&(set _+F=0d46)&&(set _-F=0u46)
+(set _G=0x47)&&(set _+G=0d47)&&(set _-G=0u47)
+(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
+(set _I=0x49)&&(set _+I=0d49)&&(set _-I=0u49)
+(set _J=0x4A)&&(set _+J=0d4A)&&(set _-J=0u4A)
+(set _K=0x4B)&&(set _+K=0d4B)&&(set _-K=0u4B)
+(set _L=0x4C)&&(set _+L=0d4C)&&(set _-L=0u4C)
+(set _M=0x4D)&&(set _+M=0d4D)&&(set _-M=0u4D)
+(set _N=0x4E)&&(set _+N=0d4E)&&(set _-N=0u4E)
+(set _O=0x4F)&&(set _+O=0d4F)&&(set _-O=0u4F)
 set _P=0x50
+(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
 set _Q=0x51
+(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
 set _R=0x52
+(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
 set _S=0x53
+(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
 set _T=0x54
+(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
 set _U=0x55
+(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
 set _V=0x56
+(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
 set _W=0x57
+(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
 set _X=0x58
+(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
 set _Y=0x59
+(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
 set _Z=0x5A
 set _WIN=0x5B
 set _LWIN=0x5B
@@ -74,8 +84,9 @@ echo %cd%
 ::nircmd sendmouse right click
 ::echo %VK_DOWN%
 ::sendkey [Key] [press | down | up] 
-::nircmd sendmouse move -30 20 
-call :Script002
+::nircmd sendmouse move -30 20
+::echo %_H% %_+H% %_-H%
+call :Script001
 :::::::::::::::::::::::::::::::::::::::::::::
 (TIMEOUT /T 10)&&(exit /b)
 :::::::::::::::::::::::::::::::::::::::::::::
@@ -92,12 +103,12 @@ exit /b
 :Script001
 ::Пытаемся в соседней вкладке нажимать на клавиатуру
 call :npp.new
-call :KeyPress %_H% %_E% %_L% %_L% %_O% %_W% %_SPACE% %_W% %_O% %_R% %_L% %_D% %_ENTER%
+call :KeyPress %_+H% %_-H% %_E% %_L% %_L% %_O% %_W% %_SPACE% %_W% %_O% %_R% %_L% %_D% %_ENTER%
 exit /b
 :Script002
-call :KeyPress %_H% %_E% %_L% %_L% %_O% %_W% %_SPACE% %_W% %_O% %_R% %_L% %_D% %_ENTER%
+call :KeyPress %_+H% %_-H% %_E% %_ENTER%
 exit /b
-:::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::
 :npp.new
 call :MouseMove 500 10
 call :MouseLeftClick
@@ -125,16 +136,9 @@ exit /b
 for %%i in (%*) do (
  echo qwe
  set VarText=%%i
- if "!VarText:~1,1!" EQU "x" ( echo x )
- ::if "!VarText:~1,1!" EQU "x" ( nircmd sendkey !VarText! press )
+ if "!VarText:~1,1!" EQU "x" ( nircmd sendkey !VarText! press
+ )else if "!VarText:~1,1!" EQU "u" ( nircmd sendkey !VarText:u=x! up
+ )else if "!VarText:~1,1!" EQU "d" ( nircmd sendkey !VarText:d=x! down )
+nircmd wait 1
 )
 exit /b
-::nircmd sendkey %%i down
-::nircmd wait 5
-::nircmd sendkey %%i up
-::nircmd wait 5
-:: nircmd sendkey %%i press
-:: set VarText=
-:: echo _%%i_
-:: echo ____
-::  %VarText:~1,1%
