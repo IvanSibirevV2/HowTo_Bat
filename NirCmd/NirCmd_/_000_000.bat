@@ -6,10 +6,13 @@ cd %~dp0
 setlocal EnableDelayedExpansion
 ::Config
 ::https://learn.microsoft.com/ru-ru/windows/win32/inputdev/virtual-key-codes?redirectedfrom=MSDN
+set _MousBtnLeft=0x01
+set _MousBtnRight=0x02
+set _MousBtnMiddle=0x04
 set _Backspace=0x08
 set _TAB=0x09
 set _ENTER=0x0D
-set _SHIFT=0x10
+(set _SHIFT=0x10)&&(set _+SHIFT=0d10)&&(set _-SHIFT=0u10)
 set _CTRL=0x11
 set _ALT=0x12
 set _PAUSE=0x13
@@ -51,32 +54,89 @@ set _9=0x39
 (set _M=0x4D)&&(set _+M=0d4D)&&(set _-M=0u4D)
 (set _N=0x4E)&&(set _+N=0d4E)&&(set _-N=0u4E)
 (set _O=0x4F)&&(set _+O=0d4F)&&(set _-O=0u4F)
-set _P=0x50
-(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
-set _Q=0x51
-(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
-set _R=0x52
-(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
-set _S=0x53
-(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
-set _T=0x54
-(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
-set _U=0x55
-(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
-set _V=0x56
-(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
-set _W=0x57
-(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
+(set _P=0x50)&&(set _+P=0d50)&&(set _-P=0u50)
+(set _Q=0x51)&&(set _+Q=0d51)&&(set _-Q=0u51)
+(set _R=0x52)&&(set _+R=0d52)&&(set _-R=0u52)
+(set _S=0x53)&&(set _+S=0d53)&&(set _-S=0u53)
+(set _T=0x54)&&(set _+T=0d54)&&(set _-T=0u54)
+(set _U=0x55)&&(set _+U=0d55)&&(set _-U=0u55)
+(set _V=0x56)&&(set _+V=0d56)&&(set _-V=0u56)
+(set _W=0x57)&&(set _+W=0d57)&&(set _-W=0u57)
 set _X=0x58
-(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
 set _Y=0x59
-(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
 set _Z=0x5A
 set _WIN=0x5B
 set _LWIN=0x5B
 set _RWIN=0x5C
+set _KeyApplication=0x5D
+set _NumPad0=0x60
+set _NumPad1=0x61
+set _NumPad2=0x62
+set _NumPad3=0x63
+set _NumPad4=0x64
+set _NumPad5=0x65
+set _NumPad6=0x66
+set _NumPad7=0x67
+set _NumPad8=0x68
+set _NumPad9=0x69
+set _NumPad*=0x6A
+set _NumPad+=0x6B
+set _NumPad-=0x6D
+set _NumPad.=0x6E
+set _NumPad/=0x6F
+set _F1=0x70
+set _F2=0x71
+set _F3=0x72
+set _F4=0x73
+set _F5=0x74
+set _F6=0x75
+set _F7=0x76
+set _F8=0x77
+set _F9=0x78
+set _F10=0x79
+set _F11=0x7A
+set _F12=0x7B
+set _NumLock=0x90
+set _ScrollLock=0x91
+set _PrintScreen=0x9A
+set _;=0xBA
+::=
+set _equ=0xBB
+set _,=0xBC
+set _-=0xBD
+set _.=0xBE
+set _/=0xBF
+set _~=0xC0
+set _[=0xDB
+set _\=0xDC
+set _]=0xDD
+set _'=0xDE
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+rem Обратите внимание, некоторые клавиши нажать нельзя
+rem так как они явзяются комбинацией клавишь
+rem Для них идет отдельная комбинированная переменная
+rem так как если комбинация клавишь неотлажена и запущена с кошибкой
+rem то вы получите накопленый баг, снимаемый только перезагрузкой компьютера
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo %cd%
+
+
+::call :HABLON "%%_Q%%" "%%_5%% %%_7%%" 
+
+::(set _W=0x57)&&(set _+W=0d57)&&(set _-W=0u57)
+::goto QWEQWEQ
+:::HABLON
+::SET var1=%1
+::SET var2=%2
+::call :MouseMove 700 10
+::call :MouseLeftClick
+::call :KeyPress %_+SHIFT% %_9% %_-SHIFT% %_S% %_E% %_T% %_SPACE% %_+SHIFT% %_-% %_-SHIFT% %var1:~1,-1% %_equ% %_0% %_X% %var2:~1,-1% %_+SHIFT% %_0% %_-SHIFT%
+::call :KeyPress %_7% %_7%
+::call :KeyPress %_+SHIFT% %_9% %_-SHIFT% %_S% %_E% %_T% %_SPACE% %_+SHIFT% %_-% %_+% %_-SHIFT% %var1:~1,-1% %_equ% %_0% %_X% %var2:~1,-1% %_+SHIFT% %_0% %_-SHIFT% %_+SHIFT%
+
+
+::exit /b
+:::QWEQWEQ
 ::nircmd sendkey a press
 ::nircmd /?
 ::Установить курсор в координаты 50 50
@@ -86,12 +146,12 @@ echo %cd%
 ::sendkey [Key] [press | down | up] 
 ::nircmd sendmouse move -30 20
 ::echo %_H% %_+H% %_-H%
-call :Script001
+::call :Script001
 :::::::::::::::::::::::::::::::::::::::::::::
 (TIMEOUT /T 10)&&(exit /b)
 :::::::::::::::::::::::::::::::::::::::::::::
 :Script000
-::Крутим мышкой
+rem Крутим мышкой? Делаем магически квадрат
 for /L %%i in (1,1,10) do (
  call :MouseMoveR 25 0
  call :MouseMoveR 0 25
@@ -101,12 +161,12 @@ for /L %%i in (1,1,10) do (
 )
 exit /b
 :Script001
-::Пытаемся в соседней вкладке нажимать на клавиатуру
+rem Пытаемся в соседней вкладке нажимать на клавиатуру
 call :npp.new
 call :KeyPress %_+H% %_-H% %_E% %_L% %_L% %_O% %_W% %_SPACE% %_W% %_O% %_R% %_L% %_D% %_ENTER%
 exit /b
 :Script002
-call :KeyPress %_+H% %_-H% %_E% %_ENTER%
+
 exit /b
 ::::::::::::::::::::::::::::::::::::::::::::
 :npp.new
@@ -137,8 +197,8 @@ for %%i in (%*) do (
  echo qwe
  set VarText=%%i
  if "!VarText:~1,1!" EQU "x" ( nircmd sendkey !VarText! press
- )else if "!VarText:~1,1!" EQU "u" ( nircmd sendkey !VarText:u=x! up
- )else if "!VarText:~1,1!" EQU "d" ( nircmd sendkey !VarText:d=x! down )
-nircmd wait 1
+ )else if "!VarText:~1,1!" EQU "d" ( nircmd sendkey !VarText:d=x! down 
+ )else if "!VarText:~1,1!" EQU "u" ( nircmd sendkey !VarText:u=x! up )
+nircmd wait 10
 )
 exit /b

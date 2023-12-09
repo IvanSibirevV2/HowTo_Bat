@@ -1,0 +1,5 @@
+// Запуск из командной строки
+#name "New Script"
+#autorun
+MOVE(10,10) 
+HALT(1)

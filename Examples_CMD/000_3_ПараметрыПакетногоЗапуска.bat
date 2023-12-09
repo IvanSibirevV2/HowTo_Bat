@@ -47,6 +47,7 @@ call :foo q w e r t y u i o a s d f g h j k
 	echo %%15%%=%15
 	echo Вывод вааще всех параметрв файла одной строкой
 	echo %*
+	for %%i in (%*) do (echo _%%i_)
 	set qwertyuiop=%*
 	echo %qwertyuiop%
 	echo Вывод вааще всех параметрв файла через сдвиг
