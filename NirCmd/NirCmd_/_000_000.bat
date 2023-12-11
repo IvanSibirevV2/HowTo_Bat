@@ -4,6 +4,18 @@ if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
 cd %~dp0
 :::::::::::::::::::::::::::::::::::::::::::::
 setlocal EnableDelayedExpansion
+::https://nircmd.nirsoft.net/win.html
+TITLE qwerewerwerwe
+nircmd win min title "qwerewerwerwe"
+nircmd win max title "qwerewerwerwe"
+
+::(
+ ::set IS_MINIMIZED=1
+ ::start "" /min "%~dpnx0" %*
+:: echo qwe
+:: pause
+::exit
+
 ::Config
 ::https://learn.microsoft.com/ru-ru/windows/win32/inputdev/virtual-key-codes?redirectedfrom=MSDN
 set _MousBtnLeft=0x01
@@ -14,7 +26,7 @@ set _TAB=0x09
 set _ENTER=0x0D
 (set _SHIFT=0x10)&&(set _+SHIFT=0d10)&&(set _-SHIFT=0u10)
 set _CTRL=0x11
-set _ALT=0x12
+(set _ALT=0x12)&&(set _+ALT=0d12)&&(set _-ALT=0u12)
 set _PAUSE=0x13
 set _CAPSLOCK=0x14
 set _ESCAPE=0x1B
@@ -59,13 +71,14 @@ set _9=0x39
 (set _R=0x52)&&(set _+R=0d52)&&(set _-R=0u52)
 (set _S=0x53)&&(set _+S=0d53)&&(set _-S=0u53)
 (set _T=0x54)&&(set _+T=0d54)&&(set _-T=0u54)
+(set _T=0x54)&&(set _+T=0d54)&&(set _-T=0u54)
 (set _U=0x55)&&(set _+U=0d55)&&(set _-U=0u55)
 (set _V=0x56)&&(set _+V=0d56)&&(set _-V=0u56)
 (set _W=0x57)&&(set _+W=0d57)&&(set _-W=0u57)
 set _X=0x58
 set _Y=0x59
 set _Z=0x5A
-set _WIN=0x5B
+(set _WIN=0x5B)&&(set _+WIN=0d5B)&&(set _-WIN=0u5B)
 set _LWIN=0x5B
 set _RWIN=0x5C
 set _KeyApplication=0x5D
@@ -121,6 +134,11 @@ rem то вы получите накопленый баг, снимаемый только перезагрузкой компьютера
 echo %cd%
 
 
+
+::call :KeyPress %_+ALT% %_SPACE% %_-ALT% %_arrow% %_arrow% %_arrow% %_ENTER%
+
+::(TIMEOUT /T 100)
+
 ::call :HABLON "%%_Q%%" "%%_5%% %%_7%%" 
 
 ::(set _W=0x57)&&(set _+W=0d57)&&(set _-W=0u57)
@@ -170,10 +188,10 @@ exit /b
 exit /b
 ::::::::::::::::::::::::::::::::::::::::::::
 :npp.new
-call :MouseMove 500 10
-call :MouseLeftClick
-call :MouseMove 10 70
-call :MouseLeftClick
+::call :MouseMove 500 10
+::call :MouseLeftClick
+::call :MouseMove 10 70
+::call :MouseLeftClick
 exit /b
 :::::::::::::::::::::::::::::::::::::::::::::
 :MouseMove
