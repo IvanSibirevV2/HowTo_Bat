@@ -10,6 +10,7 @@
 @echo off
 if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
 cd %~dp0
+title %~0 
 :::::::::::::::::::::::::::::::::::::::::::::
 set qwe=dsa;asda;
 echo %qwe%

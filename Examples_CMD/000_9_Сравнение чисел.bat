@@ -2,6 +2,7 @@
 @echo off
 if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
 cd %~dp0
+title %~0 
 :::::::::::::::::::::::::::::::::::::::::::::
 set /a per1= 20
 echo "per1=%per1%"

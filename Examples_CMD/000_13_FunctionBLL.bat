@@ -2,6 +2,7 @@
 @echo off
 if "%cd%\" EQU "%~dp0" (start notepad++ %0)
 cd %~dp0
+title %~0 
 :::::::::::::::::::::::::::::::::::::::::::::
 	if "%1"=="" (call :Main)
 	if %1 EQU ":Main" (call :Main)
