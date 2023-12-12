@@ -137,7 +137,7 @@ nircmd sendkeypress f %_,% d u l t %_;% p b r k v y j g h c n e a %_[% w x i o %
 nircmd sendkeypress alt+shift wait 1000
 nircmd sendkeypress enter
 nircmd sendkeypress alt+shift wait 1000
-nircmd sendkeypress  capslock  f %_,% d u l t %_;% p b r k v y j g h c n e a %_[% w x i o %_]% s m %_'% %_.% z capslock 
+nircmd sendkeypress capslock  f %_,% d u l t %_;% p b r k v y j g h c n e a %_[% w x i o %_]% s m %_'% %_.% z capslock 
 nircmd sendkeypress alt+shift wait 1000
 
 ::Танцуем мышькой
