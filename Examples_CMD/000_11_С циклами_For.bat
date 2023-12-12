@@ -3,6 +3,7 @@
 if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
 cd %~dp0
 title %~0 
+setlocal EnableDelayedExpansion
 :::::::::::::::::::::::::::::::::::::::::::::
 for /L %%i in (1,1,10) do (echo i = %%i)
 echo.
