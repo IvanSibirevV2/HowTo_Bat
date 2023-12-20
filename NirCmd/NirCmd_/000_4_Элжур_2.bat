@@ -119,28 +119,63 @@ set Title_Id=%Title_Id: =_%
 title %Title_Id%
 nircmd.exe win trans ititle %Title_Id% 192
 ::::::::::::::::::::::::::::::::::::::
-set timmi=150
-for /L %%i in (1,1,15) do (
-nircmd setcursor 625 1040
-nircmd sendmouse left click
-nircmd wait %timmi%
-nircmd sendkeypress ctrl+c
-nircmd wait %timmi%
-nircmd sendkeypress %_arrow.DOWN%
-nircmd wait %timmi%
-nircmd setcursor 340 1040
-nircmd sendmouse left click
-nircmd wait %timmi%
-nircmd sendkeypress %_Backspace%
-nircmd wait %timmi%
-nircmd sendkeypress %_Backspace%
-nircmd wait %timmi%
-nircmd sendkeypress ctrl+v
-nircmd wait %timmi%
-nircmd sendkeypress %_arrow.DOWN%
-nircmd wait %timmi%
-)
-nircmd setcursor 435 1040
-nircmd sendmouse left click
+call :MenuEngine :MP_Exit :MP_kip.eljur.ru
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 (TIMEOUT /T 1)&&(exit /b)
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:MenuEngine
+setlocal
+ set _id=0
+ :MenuEngine_begin
+  set _counter=0
+  set _target=
+  ::Вывод на экран
+  for %%i in (%*) do ((call %%i)&(set /a _counter=!_counter!+1))
+  choice /c ews  
+  if %ErrorLevel% EQU 2 ((echo w)&(set /a _id= %_id%-1)&(set %ErrorLevel%=0))
+  if %ErrorLevel% EQU 3 ((echo s)&(set /a _id= %_id%+1)&(set %ErrorLevel%=0))
+  if %_id% LSS 0 set /a _id=%_counter%-1
+  if %_id% GEQ %_counter% set _id=0
+  set _counter=%_id% 
+  if %ErrorLevel% EQU 1 (call %_target% do)
+ goto :MenuEngine_begin
+endlocal
+exit /b
+
+:MP_Exit
+if "%1" EQU "" (if "%_id%" EQU "%_counter%" ((<nul set /p strTemp=*)&(set _target=%0))
+ echo %_counter%. Exit
+)else (if %_id% EQU %_counter% call :Script_09_49__20_12_2023)
+exit /b
+:Script_09_49__20_12_2023
+TIMEOUT /T 1
+Exit
+exit /b
+:MP_kip.eljur.ru
+if "%1" EQU "" (if "%_id%" EQU "%_counter%" ((<nul set /p strTemp=*)&(set _target=%0))
+ echo %_counter%. kip.eljur.ru
+)else (if %_id% EQU %_counter% call :Script_09_53__20_12_2023)
+exit /b
+:Script_09_53__20_12_2023
+ nircmd win min title %Title_Id%
+ nircmd wait 100
+ START https://kip.eljur.ru/
+ TIMEOUT /T 2
+ nircmd win max title %Title_Id%
+ nircmd wait 100
+exit /b
+:Mark2
+if "%1" EQU "" (if "%_id%" EQU "%_counter%" ((<nul set /p strTemp=*)&(set _target=%0))
+ echo %_counter%. kip.eljur.ru
+)else (if %_id% EQU %_counter% call :Script_09_53__20_12_2023)
+exit /b
+:Script_09_53__20_12_2023
+ nircmd win min title %Title_Id%
+ nircmd wait 100
+ START https://kip.eljur.ru/
+ TIMEOUT /T 2
+ nircmd win max title %Title_Id%
+ nircmd wait 100
+exit /b
+
+

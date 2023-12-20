@@ -9,7 +9,6 @@ set Title_Id=%Title_Id: =_%
 title %Title_Id%
 nircmd.exe win trans ititle %Title_Id% 192
 
-
 for /L %%i in (1,1,100) do (
 ECHO  stop: 0x000000%%i ^(0XFD3094C2,0x00000001,0XFBFE7617,0x00000000^)
 nircmd.exe win hide class progman
