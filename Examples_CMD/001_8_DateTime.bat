@@ -1,12 +1,22 @@
+:::::::::::::::::::::::::::::::::::::::::::::
+@echo off
+if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
+cd %~dp0
+:::::::::::::::::::::::::::::::::::::::::::::
+echo DateTime.Now=%date%
+echo DateTime.Now.Year=%date:~-4%
+echo DateTime.Now.Month=%date:~3,2%
+echo DateTime.Now.Day=%date:~0,2%
+echo DateTime.Now.Hour=%TIME:~0,2%
+echo DateTime.Now.Minutes=%TIME:~3,2%
+echo DateTime.Now.Seconds=%TIME:~6,2%
+echo DateTime.Now.Tik=%TIME:~9%
+echo %username%
+:::::::::::::::::::::::::::::::::::::::::::::
+(TIMEOUT /T 10)&&(pause)&&(exit /b)
+:::::::::::::::::::::::::::::::::::::::::::::
 @echo OFF
 cd %~dp0
-	::Если параметр пустой, то запускай мэин
-	if "%1"=="" (call :DateTime.Main)
-	::Если параметр мэин, то запускай мэин
-	if %1 EQU ":Main" (call :DateTime.Main)
-	::Иначе работаем как библиотека
-	if %1 EQU ":Now" (call :DateTime.Now %2)
-	if %1 EQU ":Now.Year" (call :DateTime.Now.Year %2)
 	if %1 EQU ":Now.Month" (call :DateTime.Now.Month %2)
 	if %1 EQU ":Now.Day" (call :DateTime.Now.Day %2)
 	if %1 EQU ":Now.Hour" (call :DateTime.Now.Hour %2)
@@ -48,27 +58,6 @@ exit /b
 	pause
 	TIMEOUT /T 10
 exit /b
-:DateTime.Now
-	set %1=%date%
-exit /b
-:DateTime.Now.Year
-	set %1=%date:~-4%
-exit /b
-:DateTime.Now.Month
-	set %1=%date:~3,2%
-exit /b
-:DateTime.Now.Day
-	set %1=%date:~0,2%
-exit /b
-:DateTime.Now.Hour
-	set %1=%TIME:~0,2%
-exit /b
-:DateTime.Now.Minutes
-	set %1=%TIME:~3,2%
-exit /b
-:DateTime.Now.Seconds
-	set %1=%TIME:~6,2%
-exit /b
 rem	call :System.DateTime.Guid %Result%
 rem Возвращает неповторяющуюся строку в формате
 rem [дата запуска батника]_[время запуска батника]_[Коллическво запусков этой функции]_[запустивший пользователь].
@@ -77,6 +66,6 @@ rem Удобно для генерации имени временных фай�
 :: Проверял, при запуске из внешнего покетного файла два разных Call соответствуют двум разным секундам (иначе у них растет каунтер), беспокоиться не приходится. Железно проверял.
 ::Так касяк с часом, не беспокойтесь, пробел 8 всего то означает что сейчас 8 утра, это не баг процедуры, это особенности времени в досе
 :DateTime.Now.Guid
-	set /a System.DateTime.Guid.Counter= %System.DateTime.Guid.Counter%+1
+	set /a System.DateTime.Guid.Counter=%System.DateTime.Guid.Counter%+1
 	set %1=%date:~-4%%date:~3,2%%date:~0,2%_%TIME:~0,2%%TIME:~3,2%%TIME:~6,2%_%System.DateTime.Guid.Counter%_%username%%
 exit /b
