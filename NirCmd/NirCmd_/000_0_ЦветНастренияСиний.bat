@@ -4,6 +4,7 @@ if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
 cd %~dp0
 title %~0 
 :::::::::::::::::::::::::::::::::::::::::::::
+start https://avatars.dzeninfra.ru/get-zen_doc/248942/pub_5b57219e6c14af00a9f843b7_5b588c3d9e4a5000aaabe6a2/scale_1200
 ECHO :::::::::::::::::::::::::::::::::::::::::::::
 COLOR 3F
 ECHO A problem has been detected and windows has been shut down to prevent damage to your computer.

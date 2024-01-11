@@ -120,7 +120,12 @@ title %Title_Id%
 nircmd.exe win trans ititle %Title_Id% 192
 ::::::::::::::::::::::::::::::::::::::
 set timmi=150
-for /L %%i in (1,1,15) do (
+call :mark_ctrl_c___ctrl_v 11
+nircmd setcursor 435 1040
+nircmd sendmouse left click
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+(TIMEOUT /T 1)&&(exit /b)
+:mark_excel_ctrl_c
 nircmd setcursor 625 1040
 nircmd sendmouse left click
 nircmd wait %timmi%
@@ -128,19 +133,23 @@ nircmd sendkeypress ctrl+c
 nircmd wait %timmi%
 nircmd sendkeypress %_arrow.DOWN%
 nircmd wait %timmi%
+exit /b
+:mark_eljur_ctrl_v
 nircmd setcursor 340 1040
 nircmd sendmouse left click
 nircmd wait %timmi%
-nircmd sendkeypress %_Backspace%
+nircmd sendkeypress %_Backspace% %_DELETE%
 nircmd wait %timmi%
-nircmd sendkeypress %_Backspace%
+nircmd sendkeypress %_Backspace% %_DELETE%
 nircmd wait %timmi%
 nircmd sendkeypress ctrl+v
 nircmd wait %timmi%
 nircmd sendkeypress %_arrow.DOWN%
 nircmd wait %timmi%
+exit /b
+:mark_ctrl_c___ctrl_v
+for /L %%i in (1,1,%1) do (
+call :mark_excel_ctrl_c
+call :mark_eljur_ctrl_v
 )
-nircmd setcursor 435 1040
-nircmd sendmouse left click
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-(TIMEOUT /T 1)&&(exit /b)
+exit /b
