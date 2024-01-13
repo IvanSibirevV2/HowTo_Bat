@@ -8,10 +8,26 @@ title %~0
 setlocal EnableDelayedExpansion
 :::::::::::::::::::::::::::::::::::::::::::::
 echo %cd%
-call :MenuEngine :Mark1 :Mark2 :Mark3
+::if %ErrorLevel% EQU 1 (echo q)
+
+::call :MenuEngine :Mark1 :Mark2 :Mark3
 :::::::::::::::::::::::::::::::::::::::::::::
 (TIMEOUT /T 1)&&(pause)&&(exit /b)
 :::::::::::::::::::::::::::::::::::::::::::::
+:ME2
+rem MenuEngineV2
+rem В чем идея...
+rem Всего две кнопки.
+rem Первая Q - закольцрванно меняет выбор на следующий.
+rem Вторая E - запускает текущий пункт
+rem для реализации требуется
+rem 1 - закольцованный список
+rem 2 - вывод на экран элементов закольцованного списка
+rem 3 - удаение первого элемента закольцованного списка
+rem 4 - добавление в конец
+::choice /c qe
+::echo %ErrorLevel%
+exit /b
 :MenuEngine
 setlocal
  set _id=0

@@ -12,9 +12,9 @@ set _MousBtnMiddle=0x04
 set _Backspace=0x08
 set _TAB=0x09
 set _ENTER=0x0D
-(set _SHIFT=0x10)&&(set _+SHIFT=0d10)&&(set _-SHIFT=0u10)
+set _SHIFT=0x10
 set _CTRL=0x11
-(set _ALT=0x12)&&(set _+ALT=0d12)&&(set _-ALT=0u12)
+set _ALT=0x12
 set _PAUSE=0x13
 set _CAPSLOCK=0x14
 set _ESCAPE=0x1B
@@ -39,34 +39,34 @@ set _6=0x36
 set _7=0x37
 set _8=0x38
 set _9=0x39
-(set _A=0x41)&&(set _+A=0d41)&&(set _-A=0u41)
-(set _B=0x42)&&(set _+B=0d42)&&(set _-B=0u42)
-(set _C=0x43)&&(set _+C=0d43)&&(set _-C=0u43)
-(set _D=0x44)&&(set _+D=0d44)&&(set _-D=0u44)
-(set _E=0x45)&&(set _+E=0d45)&&(set _-E=0u45)
-(set _F=0x46)&&(set _+F=0d46)&&(set _-F=0u46)
-(set _G=0x47)&&(set _+G=0d47)&&(set _-G=0u47)
-(set _H=0x48)&&(set _+H=0d48)&&(set _-H=0u48)
-(set _I=0x49)&&(set _+I=0d49)&&(set _-I=0u49)
-(set _J=0x4A)&&(set _+J=0d4A)&&(set _-J=0u4A)
-(set _K=0x4B)&&(set _+K=0d4B)&&(set _-K=0u4B)
-(set _L=0x4C)&&(set _+L=0d4C)&&(set _-L=0u4C)
-(set _M=0x4D)&&(set _+M=0d4D)&&(set _-M=0u4D)
-(set _N=0x4E)&&(set _+N=0d4E)&&(set _-N=0u4E)
-(set _O=0x4F)&&(set _+O=0d4F)&&(set _-O=0u4F)
-(set _P=0x50)&&(set _+P=0d50)&&(set _-P=0u50)
-(set _Q=0x51)&&(set _+Q=0d51)&&(set _-Q=0u51)
-(set _R=0x52)&&(set _+R=0d52)&&(set _-R=0u52)
-(set _S=0x53)&&(set _+S=0d53)&&(set _-S=0u53)
-(set _T=0x54)&&(set _+T=0d54)&&(set _-T=0u54)
-(set _T=0x54)&&(set _+T=0d54)&&(set _-T=0u54)
-(set _U=0x55)&&(set _+U=0d55)&&(set _-U=0u55)
-(set _V=0x56)&&(set _+V=0d56)&&(set _-V=0u56)
-(set _W=0x57)&&(set _+W=0d57)&&(set _-W=0u57)
+set _A=0x41
+set _B=0x42
+set _C=0x43
+set _D=0x44
+set _E=0x45
+set _F=0x46
+set _G=0x47
+set _H=0x48
+set _I=0x49
+set _J=0x4A
+set _K=0x4B
+set _L=0x4C
+set _M=0x4D
+set _N=0x4E
+set _O=0x4F
+set _P=0x50
+set _Q=0x51
+set _R=0x52
+set _S=0x53
+set _T=0x54
+set _T=0x54
+set _U=0x55
+set _V=0x56
+set _W=0x57
 set _X=0x58
 set _Y=0x59
 set _Z=0x5A
-(set _WIN=0x5B)&&(set _+WIN=0d5B)&&(set _-WIN=0u5B)
+set _WIN=0x5B
 set _LWIN=0x5B
 set _RWIN=0x5C
 set _KeyApplication=0x5D
@@ -101,7 +101,6 @@ set _NumLock=0x90
 set _ScrollLock=0x91
 set _PrintScreen=0x9A
 set _;=0xBA
-::=
 set _equ=0xBB
 set _,=0xBC
 set _-=0xBD
