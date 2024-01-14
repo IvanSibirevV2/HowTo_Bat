@@ -3,6 +3,7 @@
 if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
 cd %~dp0
 title %~0 
+setlocal EnableDelayedExpansion
 :::::::::::::::::::::::::::::::::::::::::::::
 ::https://celitel.info/klad/nhelp/helpbat.php?dcmd=ex_string
 set VarText=СтрокаБезПробела
@@ -28,6 +29,25 @@ set "VarText1=Объединение"
 set "VarText2=строк"
 echo %VarText1% %VarText2%
 echo %VarText1%%VarText2%
+::::::::::::::::::::::::::::::::::::::::::::::
+
+set VarText1=Text
+call :StrCount %VarText1% C
+echo %C%
+::::::::::::::::::::::::::::::::::::::::::::::
 TIMEOUT /T 1
 pause
+exit /b
+::::::::::::::::::::::::::::::::::::::::::::::
+:StrCount
+set VarText1=%1
+set %2=0
+:sfklhgkjsdkjdsh
+if defined VarText1 (
+ set VarText1=!VarText1:~1!
+ set /a %2=!%2!+1
+goto :sfklhgkjsdkjdsh
+)
+::if defined FileWrite (echo "FileWrite - defined")
+::if not defined FileWrite (echo "FileWrite - not defined")
 exit /b
