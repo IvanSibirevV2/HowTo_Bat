@@ -1,17 +1,10 @@
 :::::::::::::::::::::::::::::::::::::::::::::
-goto initEnd
-call :init %0
-:init
 @echo off
 if "%cd%\" EQU "%~dp1" ((start notepad++ %1)&&(exit))
 cd %~dp1
 title %~1
 setlocal EnableDelayedExpansion
 cls
-exit /b
-:initEnd
-:::::::::::::::::::::::::::::::::::::::::::::
-call :init %0
 :::::::::::::::::::::::::::::::::::::::::::::
 for /L %%i in (1,1,10) do (echo i = %%i)
 echo.

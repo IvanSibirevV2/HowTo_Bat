@@ -1,17 +1,10 @@
 :::::::::::::::::::::::::::::::::::::::::::::
-goto initEnd
-call :init %0
-:init
 @echo off
-if "%cd%\" EQU "%~dp1" ((start notepad++ %1)&&(exit))
-cd %~dp1
-title %~1
+if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit))
+cd %~dp0
+title %~0
 setlocal EnableDelayedExpansion
 cls
-exit /b
-:initEnd
-:::::::::::::::::::::::::::::::::::::::::::::
-call :init %0
 :::::::::::::::::::::::::::::::::::::::::::::
 ::пакетный файл принимает параметры ^%^0 ^%^1 ... %^9. ^
 ::из них %^0 - судя по всему это сам путь к исполняемому файлу.
