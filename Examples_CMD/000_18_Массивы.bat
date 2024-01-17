@@ -1,10 +1,17 @@
-::Нужно сначала дать тему виртуальных переменных
-setlocal EnableDelayedExpansion
 :::::::::::::::::::::::::::::::::::::::::::::
+goto initEnd
+call :init %0
+:init
 @echo off
-if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
-cd %~dp0
-title %~0 
+if "%cd%\" EQU "%~dp1" ((start notepad++ %1)&&(exit))
+cd %~dp1
+title %~1
+setlocal EnableDelayedExpansion
+cls
+exit /b
+:initEnd
+:::::::::::::::::::::::::::::::::::::::::::::
+call :init %0
 :::::::::::::::::::::::::::::::::::::::::::::
 ::Некоторые интузиасты говорят что в батниках массивы есть
 ::смотрите вот на форуме есть :array....

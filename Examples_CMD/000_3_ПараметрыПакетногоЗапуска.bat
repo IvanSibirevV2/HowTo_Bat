@@ -1,12 +1,17 @@
 :::::::::::::::::::::::::::::::::::::::::::::
+goto initEnd
+call :init %0
+:init
 @echo off
-if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit /b))
-::переход в папку где лежит батник
-echo %cd%
-title %~0 
-cd %~dp0
-echo %cd%
+if "%cd%\" EQU "%~dp1" ((start notepad++ %1)&&(exit))
+cd %~dp1
+title %~1
 setlocal EnableDelayedExpansion
+cls
+exit /b
+:initEnd
+:::::::::::::::::::::::::::::::::::::::::::::
+call :init %0
 :::::::::::::::::::::::::::::::::::::::::::::
 ::пакетный файл принимает параметры ^%^0 ^%^1 ... %^9. ^
 ::?араметров пакетного запуска может быть сколько угодно, 
