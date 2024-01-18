@@ -6,35 +6,30 @@ title %~0
 setlocal EnableDelayedExpansion
 cls
 :::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::
 goto StrCountEnd
-:StrCount
-set VarText1=%1
-set %2=0
-:sfklhgkjsdkjdsh
-if defined VarText1 (
- set VarText1=!VarText1:~1!
- echo !VarText1!
- set /a %2=!%2!+1
-echo !%2!
-PAUSE
-goto :sfklhgkjsdkjdsh
-)
-::if defined FileWrite (echo "FileWrite - defined")
-::if not defined FileWrite (echo "FileWrite - not defined")
-exit /b
-:::TestStrCount
-::set VarText1=Text
-::call :StrCount %VarText1% C
-::echo %C%
-::exit /b
+	:StrCount
+		set VarText1=%1
+		set %2=0
+		:sfklhgkjsdkjdsh
+		if defined VarText1 (
+			set VarText1=!VarText1:~1!
+			set /a %2=!%2!+1
+			goto :sfklhgkjsdkjdsh
+		)
+	exit /b
+	:TestStrCount
+		set VarText1=Text
+		echo %VarText1%
+		call :StrCount %VarText1% C
+		echo %C%
+		pause
+	exit /b
 :StrCountEnd
-::call TestStrCount
-::set VarText1=Text
-::set C=0
-::call :StrCount %VarText1% C
-::echo %C%
-::echo %VarText1%
-pause
+call :TestStrCount
+:::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::
 ::https://celitel.info/klad/nhelp/helpbat.php?dcmd=ex_string
 set VarText=СтрокаБезПробела
