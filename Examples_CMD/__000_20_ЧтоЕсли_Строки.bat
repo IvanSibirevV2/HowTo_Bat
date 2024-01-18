@@ -10,7 +10,6 @@ goto StrCountEnd
 :StrCount
 set VarText1=%1
 set %2=0
-
 :sfklhgkjsdkjdsh
 if defined VarText1 (
  set VarText1=!VarText1:~1!

@@ -1,19 +1,12 @@
 ::Рассматриваем возможность того что 
 ::Менюшка может быть сложнее чем просто папка с микробатниками
 :::::::::::::::::::::::::::::::::::::::::::::
-goto initEnd
-call :init %0
-:init
 @echo off
-if "%cd%\" EQU "%~dp1" ((start notepad++ %1)&&(exit))
-cd %~dp1
-title %~1
+if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit))
+cd %~dp0
+title %~0
 setlocal EnableDelayedExpansion
 cls
-exit /b
-:initEnd
-:::::::::::::::::::::::::::::::::::::::::::::
-call :init %0
 :::::::::::::::::::::::::::::::::::::::::::::
 set rez=
 call :setmy 5 4 3 2 
