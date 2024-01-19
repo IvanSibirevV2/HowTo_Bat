@@ -1,3 +1,4 @@
+::не дописанной
 :::::::::::::::::::::::::::::::::::::::::::::
 @echo off
 if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit))
@@ -6,6 +7,23 @@ title %~0
 setlocal EnableDelayedExpansion
 cls
 :::::::::::::::::::::::::::::::::::::::::::::
+goto NameSpase_Stack_End
+	::set Stack=q;w;e;
+	:SetStack
+		::set Stack=q;w;e;
+		
+		::set Stack=%1
+	exit /b
+:NameSpase_Stack_End
+::Создание стека
+set Stack=q;w;e;
+echo %Stack%
+::добавление элемента к массиву
+set Stack=r;%Stack%
+echo %Stack%
+::получить вершину
+
+
 ::Требуется заложить движок работы с массивами
 ::В качестве движка массивом предпологается использовать
 ::текстовую переемнную в разделителем;
