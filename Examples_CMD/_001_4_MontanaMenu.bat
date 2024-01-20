@@ -2,9 +2,9 @@
 ::Менюшка может быть сложнее чем просто папка с микробатниками
 :::::::::::::::::::::::::::::::::::::::::::::
 @echo off
-if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit))
-cd %~dp0
-title %~0
+if "%cd%\" EQU "%~dp1" ((start notepad++ %1)&&(exit))
+cd %~dp1
+title %~1
 setlocal EnableDelayedExpansion
 cls
 :::::::::::::::::::::::::::::::::::::::::::::
