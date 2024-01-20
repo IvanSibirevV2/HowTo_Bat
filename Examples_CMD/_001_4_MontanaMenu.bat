@@ -1,14 +1,16 @@
-::Рассматриваем возможность того что 
-::Менюшка может быть сложнее чем просто папка с микробатниками
 :::::::::::::::::::::::::::::::::::::::::::::
 @echo off
-if "%cd%\" EQU "%~dp1" ((start notepad++ %1)&&(exit))
-cd %~dp1
-title %~1
+if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit))
+cd %~dp0
+title %~0
 setlocal EnableDelayedExpansion
 cls
 :::::::::::::::::::::::::::::::::::::::::::::
-call :MenuEngine :Mark1 :Mark2 :Mark3
+echo Montana Menu is Exists
+CHOICE /T 5 /C qa /CS /D q /M "[q(5s)(Pick);a(Pick)])
+::if %ErrorLevel% EQU 1 (echo e)
+::if %ErrorLevel% EQU 2 (echo w)
+::if %ErrorLevel% EQU 3 (echo s)
 :::::::::::::::::::::::::::::::::::::::::::::
 (TIMEOUT /T 1)&&(pause)&&(exit /b)
 :::::::::::::::::::::::::::::::::::::::::::::
