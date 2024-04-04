@@ -4,7 +4,6 @@ getscreen
 screenshot("error.bmp")
 
 IF_PICTURE_IN (0,0, 500, 500, "screens\123.bmp")
- move($_return1, $_return2)
+move($_return1, $_return2)
 END_IF
 HALT
-
