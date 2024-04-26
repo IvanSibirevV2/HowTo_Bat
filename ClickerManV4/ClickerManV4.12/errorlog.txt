@@ -1,4 +1,0 @@
-04.04.2024 14:00:24 Thread _MAIN(0) raise exception 
-04.04.2024 14:00:51 Thread _MAIN(0) raise exception 
-04.04.2024 14:02:27 Thread _MAIN(0) raise exception 
-04.04.2024 14:03:45 Thread _MAIN(0) raise exception 
