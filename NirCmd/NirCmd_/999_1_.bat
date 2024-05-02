@@ -112,7 +112,73 @@ set _\=0xDC
 set _]=0xDD
 set _'=0xDE
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-call :Script_10_24__20_12_2023
+::call :Script_10_24__20_12_2023
+for /L %%i in (1,1,20) do (
+nircmd wait 25
+nircmd sendkeypress %_WIN%+b
+nircmd wait 25
+nircmd sendkeypress %_TAB%
+nircmd wait 25
+nircmd sendkeypress %_TAB%
+nircmd wait 25
+nircmd sendkeypress %_TAB%
+nircmd wait 25
+nircmd sendkeypress %_TAB%
+nircmd wait 25
+nircmd sendkeypress %_arrow.RIGHT%
+nircmd wait 25
+nircmd sendkeypress %_arrow.RIGHT%
+nircmd wait 25
+nircmd sendkeypress %_arrow.RIGHT%
+nircmd wait 25
+nircmd sendkeypress %_ENTER%
+nircmd wait 25
+nircmd sendkeypress %_CTRL%+c
+nircmd wait 25
+nircmd sendkeypress %_arrow.DOWN%
+nircmd wait 25
+nircmd sendkeypress %_WIN%+b
+nircmd wait 25
+nircmd sendkeypress %_TAB%
+nircmd wait 25
+nircmd sendkeypress %_TAB%
+nircmd wait 25
+nircmd sendkeypress %_TAB%
+nircmd wait 25
+nircmd sendkeypress %_TAB%
+nircmd wait 25
+nircmd sendkeypress %_arrow.RIGHT%
+nircmd wait 25
+nircmd sendkeypress %_arrow.RIGHT%
+nircmd wait 25
+nircmd sendkeypress %_arrow.RIGHT%
+nircmd wait 25
+nircmd sendkeypress %_arrow.RIGHT%
+nircmd wait 25
+nircmd sendkeypress %_ENTER%
+nircmd wait 25
+nircmd sendkeypress %_Backspace%
+nircmd wait 25
+nircmd sendkeypress %_CTRL%+v
+nircmd wait 25
+nircmd sendkeypress %_arrow.DOWN%
+nircmd wait 25
+nircmd sendkeypress %_WIN%+b
+nircmd wait 25
+nircmd sendkeypress %_TAB%
+nircmd wait 25
+nircmd sendkeypress %_TAB%
+nircmd wait 25
+nircmd sendkeypress %_TAB%
+nircmd wait 25
+nircmd sendkeypress %_TAB%
+nircmd wait 25
+nircmd sendkeypress %_arrow.RIGHT%
+nircmd wait 25
+nircmd sendkeypress %_ENTER%
+nircmd wait 25
+)
+::nircmd wait 1000
 :::::::::::::::::::::::::::::::::::::::::::::
 (TIMEOUT /T 1)&&(exit /b)
 :::::::::::::::::::::::::::::::::::::::::::::
@@ -127,7 +193,7 @@ nircmd sendkeypress ctrl+n
 ::Позволяет пакетно нажимать клавиши и комбинации клавишь
 ::Работает быстрее чем все возможные самописные обертки
 nircmd sendkeypress 0 1 2 3 4 5 6 7 8 9 enter
-nircmd sendkeypress a b c d e f g h i j k l m n o p q r s t u v w y z enter 
+nircmd sendkeypress a b c d e f g h i j k l m n o p q r s t u v w y z enter
 nircmd sendkeypress capslock a b c d e f g h i j k l m n o p q r s t u v w y z capslock enter
 ::https://lists.w3.org/Archives/Public/www-dom/2010JulSep/att-0182/keyCode-spec.html
 ::Пытаемся делать пунктуацию
