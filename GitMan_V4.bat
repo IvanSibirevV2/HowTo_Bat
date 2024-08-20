@@ -13,7 +13,7 @@ call :Git_Menu
 	cls
 	(if %m200120082024% EQU 0 (<nul set /p strTemp=*))&(echo Exit)
 	(if %m200120082024% EQU 1 (<nul set /p strTemp=*))&(echo ScriptGit+add.+AutoCommit+push)
-	(if %m200120082024% EQU 2 (<nul set /p strTemp=*))&(echo Нет)
+	(if %m200120082024% EQU 2 (<nul set /p strTemp=*))&(echo ScriptGit+add.+Commit+push)
 	(if %m200120082024% EQU 3 (<nul set /p strTemp=*))&(echo Сомневаюсь)
 	::Управляющие структуры
 	set /a m200120082024m=3
@@ -44,8 +44,18 @@ call :Git_Menu
 		TIMEOUT /T 5
 		Exit
 	)
-  if %ErrorLevel% EQU 3 if %m200120082024% EQU 1 goto :begin_m200120082024
-  if %ErrorLevel% EQU 3 if %m200120082024% EQU 2 echo Нет
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 1 goto :begin_m200120082024
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 2 echo ScriptGit+add.+Commit+push
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 2 (
+		git add .
+		git status
+		git commit
+		git log -3
+		echo git log .......
+		git push
+		TIMEOUT /T 5
+		Exit
+	)
   if %ErrorLevel% EQU 3 if %m200120082024% EQU 2 goto :begin_m200120082024
   if %ErrorLevel% EQU 3 if %m200120082024% EQU 3 echo Сомневаюсь
   if %ErrorLevel% EQU 3 if %m200120082024% EQU 3 goto :begin_m200120082024
