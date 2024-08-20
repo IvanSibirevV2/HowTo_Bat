@@ -16,9 +16,11 @@ call :Git_Menu
 	(if %m200120082024% EQU 2 (<nul set /p strTemp=*))&(echo ScriptGit+add.+Commit+push)
 	(if %m200120082024% EQU 3 (<nul set /p strTemp=*))&(echo git init - Создать репозиторий)
 	(if %m200120082024% EQU 4 (<nul set /p strTemp=*))&(echo git clone [InputFrom] - Клонировать репозиторий)
-	(if %m200120082024% EQU 5 (<nul set /p strTemp=*))&(echo Сомневаюсь)
+	(if %m200120082024% EQU 5 (<nul set /p strTemp=*))&(echo RD /s/q .git - Удалить папку Базы данных Git)
+	(if %m200120082024% EQU 6 (<nul set /p strTemp=*))&(echo git log - вывести на экран список коммитов)
+	(if %m200120082024% EQU 7 (<nul set /p strTemp=*))&(echo Сомневаюсь)
 	::Управляющие структуры
-	set /a m200120082024m=5
+	set /a m200120082024m=7
 	choice /c wse
 	if %ErrorLevel% EQU 1 echo 1 w
 	if %ErrorLevel% EQU 1 (set /a m200120082024=%m200120082024%-1)
@@ -68,6 +70,14 @@ call :Git_Menu
 	if %ErrorLevel% EQU 3 if %m200120082024% EQU 4 git clone %InputFrom%
 	if %ErrorLevel% EQU 3 if %m200120082024% EQU 4 TIMEOUT /T 2
 	if %ErrorLevel% EQU 3 if %m200120082024% EQU 4 goto :begin_m200120082024
-  if %ErrorLevel% EQU 3 if %m200120082024% EQU 5 echo Сомневаюсь
-  if %ErrorLevel% EQU 3 if %m200120082024% EQU 5 goto :begin_m200120082024
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 5 echo RD /s/q .git - Удалить папку Базы данных Git
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 5 RD /s/q .git
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 5 goto :begin_m200120082024
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 6 echo git log - вывести на экран список коммитов
+	::Если не сможете выйти из консольного просмотра коммитов, то нажмите q
+	::q - в старом ПО - замена Esc_кейпа 
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 6 git log
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 6 goto :begin_m200120082024
+  if %ErrorLevel% EQU 3 if %m200120082024% EQU 7 echo Сомневаюсь
+  if %ErrorLevel% EQU 3 if %m200120082024% EQU 7 goto :begin_m200120082024
 exit /b
