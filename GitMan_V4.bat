@@ -8,10 +8,9 @@ call :Git_Menu
 (TIMEOUT /T 1)&&(pause)&&(exit /b)
 ::::::::::::::::::::::::::::::::::::::::::::
 :Git_Menu
-	set /a m200120082024=2
+	set /a m200120082024=1
 	:begin_m200120082024
 	cls
-	echo ErrorLevel=%ErrorLevel%
 	(if %m200120082024% EQU 0 (<nul set /p strTemp=*))&(echo Exit)
 	(if %m200120082024% EQU 1 (<nul set /p strTemp=*))&(echo ScriptGit+add.+AutoCommit+push)
 	(if %m200120082024% EQU 2 (<nul set /p strTemp=*))&(echo Нет)
