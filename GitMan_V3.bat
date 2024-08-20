@@ -76,9 +76,6 @@ setlocal
 		set /a _counter= %_counter%+1
 		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo git commit - сделать коммит)
 		)else (if %_id% EQU %_counter% (git commit))
-		
-		
-		
 		:::::::::::::::::::::::::::::::::::::::::::::::
 		set /a _counter= %_counter%+1
 		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo git commit --all - сделать коммит, сделав индекс)
@@ -87,6 +84,12 @@ setlocal
 		set /a _counter= %_counter%+1
 		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo git push --all - послать на центральный репозиторий)
 		)else (if %_id% EQU %_counter% (git push --all))
+
+
+
+
+
+		
 		:::::::::::::::::::::::::::::::::::::::::::::::
 		set /a _counter= %_counter%+1
 		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo cmd)

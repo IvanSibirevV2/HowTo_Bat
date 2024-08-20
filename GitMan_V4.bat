@@ -21,10 +21,12 @@ call :Git_Menu
 	(if %m200120082024% EQU 7 (<nul set /p strTemp=*))&(echo git status - посмотреть индекс)
 	(if %m200120082024% EQU 8 (<nul set /p strTemp=*))&(echo git add . - добавить все в индекс)
 	(if %m200120082024% EQU 9 (<nul set /p strTemp=*))&(echo git commit - сделать коммит)
-	(if %m200120082024% EQU 10 (<nul set /p strTemp=*))&(echo Сомневаюсь)
-	(if %m200120082024% EQU 11 (<nul set /p strTemp=*))&(echo Сомневаюсь)
+	(if %m200120082024% EQU 10 (<nul set /p strTemp=*))&(echo git commit --all - сделать коммит, сделав индекс)
+	(if %m200120082024% EQU 11 (<nul set /p strTemp=*))&(echo git push --all - послать на центральный репозиторий)
+	(if %m200120082024% EQU 12 (<nul set /p strTemp=*))&(echo cmd)
+	(if %m200120082024% EQU 13 (<nul set /p strTemp=*))&(echo git help)
 	::Управляющие структуры
-	set /a m200120082024m=11
+	set /a m200120082024m=13
 	choice /c wse
 	if %ErrorLevel% EQU 1 echo 1 w
 	if %ErrorLevel% EQU 1 (set /a m200120082024=%m200120082024%-1)
@@ -91,8 +93,17 @@ call :Git_Menu
 	if %ErrorLevel% EQU 3 if %m200120082024% EQU 9 echo git commit - сделать коммит
 	if %ErrorLevel% EQU 3 if %m200120082024% EQU 9 git commit
 	if %ErrorLevel% EQU 3 if %m200120082024% EQU 9 goto :begin_m200120082024
-  if %ErrorLevel% EQU 3 if %m200120082024% EQU 10 echo Сомневаюсь
-  if %ErrorLevel% EQU 3 if %m200120082024% EQU 10 goto :begin_m200120082024
-  if %ErrorLevel% EQU 3 if %m200120082024% EQU 11 echo Сомневаюсь
-  if %ErrorLevel% EQU 3 if %m200120082024% EQU 11 goto :begin_m200120082024
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 10 echo git commit --all - сделать коммит, сделав индекс
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 10 git commit --all
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 10 goto :begin_m200120082024
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 11 echo git push --all - послать на центральный репозиторий
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 11 git push --all
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 11 goto :begin_m200120082024
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 12 echo cmd
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 12 cmd
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 12 goto :begin_m200120082024
+  if %ErrorLevel% EQU 3 if %m200120082024% EQU 13 echo git help
+  if %ErrorLevel% EQU 3 if %m200120082024% EQU 13 git help
+  if %ErrorLevel% EQU 3 if %m200120082024% EQU 13 pause
+  if %ErrorLevel% EQU 3 if %m200120082024% EQU 13 goto :begin_m200120082024
 exit /b
