@@ -18,9 +18,13 @@ call :Git_Menu
 	(if %m200120082024% EQU 4 (<nul set /p strTemp=*))&(echo git clone [InputFrom] - Клонировать репозиторий)
 	(if %m200120082024% EQU 5 (<nul set /p strTemp=*))&(echo RD /s/q .git - Удалить папку Базы данных Git)
 	(if %m200120082024% EQU 6 (<nul set /p strTemp=*))&(echo git log - вывести на экран список коммитов)
-	(if %m200120082024% EQU 7 (<nul set /p strTemp=*))&(echo Сомневаюсь)
+	(if %m200120082024% EQU 7 (<nul set /p strTemp=*))&(echo git status - посмотреть индекс)
+	(if %m200120082024% EQU 8 (<nul set /p strTemp=*))&(echo git add . - добавить все в индекс)
+	(if %m200120082024% EQU 9 (<nul set /p strTemp=*))&(echo git commit - сделать коммит)
+	(if %m200120082024% EQU 10 (<nul set /p strTemp=*))&(echo Сомневаюсь)
+	(if %m200120082024% EQU 11 (<nul set /p strTemp=*))&(echo Сомневаюсь)
 	::Управляющие структуры
-	set /a m200120082024m=7
+	set /a m200120082024m=11
 	choice /c wse
 	if %ErrorLevel% EQU 1 echo 1 w
 	if %ErrorLevel% EQU 1 (set /a m200120082024=%m200120082024%-1)
@@ -78,6 +82,17 @@ call :Git_Menu
 	::q - в старом ПО - замена Esc_кейпа 
 	if %ErrorLevel% EQU 3 if %m200120082024% EQU 6 git log
 	if %ErrorLevel% EQU 3 if %m200120082024% EQU 6 goto :begin_m200120082024
-  if %ErrorLevel% EQU 3 if %m200120082024% EQU 7 echo Сомневаюсь
-  if %ErrorLevel% EQU 3 if %m200120082024% EQU 7 goto :begin_m200120082024
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 7 echo git status - посмотреть индекс
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 7 git status
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 7 goto :begin_m200120082024
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 8 echo git add . - добавить все в индекс
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 8 git add .
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 8 goto :begin_m200120082024
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 9 echo git commit - сделать коммит
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 9 git commit
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 9 goto :begin_m200120082024
+  if %ErrorLevel% EQU 3 if %m200120082024% EQU 10 echo Сомневаюсь
+  if %ErrorLevel% EQU 3 if %m200120082024% EQU 10 goto :begin_m200120082024
+  if %ErrorLevel% EQU 3 if %m200120082024% EQU 11 echo Сомневаюсь
+  if %ErrorLevel% EQU 3 if %m200120082024% EQU 11 goto :begin_m200120082024
 exit /b

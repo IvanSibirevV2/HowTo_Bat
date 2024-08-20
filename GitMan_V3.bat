@@ -57,10 +57,6 @@ setlocal
 		)else (if %_id% EQU %_counter% (Set /P InputFrom=  git clone [InputFrom]^>))
 		if "%1" NEQ "" (if %_id% EQU %_counter% (git clone %InputFrom%)&(TIMEOUT /T 2))
 		:::::::::::::::::::::::::::::::::::::::::::::::
-		
-		
-		
-		
 		set /a _counter= %_counter%+1
 		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo RD /s/q .git - Удалить папку Базы данных Git)
 		)else (if %_id% EQU %_counter% (RD /s/q .git))
@@ -80,6 +76,9 @@ setlocal
 		set /a _counter= %_counter%+1
 		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo git commit - сделать коммит)
 		)else (if %_id% EQU %_counter% (git commit))
+		
+		
+		
 		:::::::::::::::::::::::::::::::::::::::::::::::
 		set /a _counter= %_counter%+1
 		if "%1" EQU "" ((if %_id% EQU %_counter% (<nul set /p strTemp=*))&(echo git commit --all - сделать коммит, сделав индекс)
