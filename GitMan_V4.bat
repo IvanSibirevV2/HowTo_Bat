@@ -14,9 +14,11 @@ call :Git_Menu
 	(if %m200120082024% EQU 0 (<nul set /p strTemp=*))&(echo Exit)
 	(if %m200120082024% EQU 1 (<nul set /p strTemp=*))&(echo ScriptGit+add.+AutoCommit+push)
 	(if %m200120082024% EQU 2 (<nul set /p strTemp=*))&(echo ScriptGit+add.+Commit+push)
-	(if %m200120082024% EQU 3 (<nul set /p strTemp=*))&(echo Сомневаюсь)
+	(if %m200120082024% EQU 3 (<nul set /p strTemp=*))&(echo git init - Создать репозиторий)
+	(if %m200120082024% EQU 4 (<nul set /p strTemp=*))&(echo git clone [InputFrom] - Клонировать репозиторий)
+	(if %m200120082024% EQU 5 (<nul set /p strTemp=*))&(echo Сомневаюсь)
 	::Управляющие структуры
-	set /a m200120082024m=3
+	set /a m200120082024m=5
 	choice /c wse
 	if %ErrorLevel% EQU 1 echo 1 w
 	if %ErrorLevel% EQU 1 (set /a m200120082024=%m200120082024%-1)
@@ -56,7 +58,16 @@ call :Git_Menu
 		TIMEOUT /T 5
 		Exit
 	)
-  if %ErrorLevel% EQU 3 if %m200120082024% EQU 2 goto :begin_m200120082024
-  if %ErrorLevel% EQU 3 if %m200120082024% EQU 3 echo Сомневаюсь
-  if %ErrorLevel% EQU 3 if %m200120082024% EQU 3 goto :begin_m200120082024
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 2 goto :begin_m200120082024
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 3 echo git init - Создать репозиторий
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 3 git init
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 3 goto :begin_m200120082024
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 4 echo git clone [InputFrom] - Клонировать репозиторий
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 4 (Set /P InputFrom= git clone [InputFrom]^>)
+	::https://github.com/IvanSibirevV2/HowTo_NirCmd.git
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 4 git clone %InputFrom%
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 4 TIMEOUT /T 2
+	if %ErrorLevel% EQU 3 if %m200120082024% EQU 4 goto :begin_m200120082024
+  if %ErrorLevel% EQU 3 if %m200120082024% EQU 5 echo Сомневаюсь
+  if %ErrorLevel% EQU 3 if %m200120082024% EQU 5 goto :begin_m200120082024
 exit /b
