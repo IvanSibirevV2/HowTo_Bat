@@ -1,7 +1,0 @@
-// Вспомогательный скрипт проекта
-
-traysay ("вызов из файла под инклудом")
-call("plugin.dll", 2, 3)
-print($_return1)
-wait(2)
-sound("load.wav")

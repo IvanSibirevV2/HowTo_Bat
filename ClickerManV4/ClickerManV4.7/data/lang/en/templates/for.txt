@@ -1,5 +1,0 @@
-// Cycle with param
-
-for ($i, $i<3)
-  print("Iteration ", $i)
-end_cyc
