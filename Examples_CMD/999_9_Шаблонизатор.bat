@@ -4,7 +4,7 @@
 @echo off
 if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit))
 cd %~dp0
-title %~0
+title %~n0%~x0
 setlocal EnableDelayedExpansion
 cls
 :::::::::::::::::::::::::::::::::::::::::::::

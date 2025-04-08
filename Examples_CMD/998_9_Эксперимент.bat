@@ -5,7 +5,7 @@
 if "%cd%\" EQU "%~dp0" ((start notepad++ %0)&&(exit))
 cd %~dp0
 setlocal EnableDelayedExpansion
-title %~0
+title %~n0%~x0
 cls
 :::::::::::::::::::::::::::::::::::::::::::::
 ::Этот эксперимерн показывает что арифметика в батниках это интеджер с + и - значениеми,
